@@ -15,6 +15,7 @@ class ProfileForm(forms.ModelForm):
 
     def save(self, commit=True):
         profile = super(ProfileForm, self).save(commit=False)
+        #create a user programmatically here
         if commit:
             profile.save()
         return profile

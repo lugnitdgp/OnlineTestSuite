@@ -23,7 +23,7 @@ class Answer(models.Model):
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.DO_NOTHING)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     time_elapsed = models.IntegerField(default=0)
     phone = models.CharField(max_length=14)
     rollno = models.CharField(max_length=10)
