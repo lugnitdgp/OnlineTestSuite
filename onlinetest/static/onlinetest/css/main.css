@@ -1,0 +1,8 @@
+.question h2 {
+    font-family: 'Mukta', sans-serif;
+    font-size: 4 rem;
+}
+
+.finish-btn {
+    width: 40% !important;
+}
