@@ -10,18 +10,19 @@
         <p>3. Trying to minimize the page will result in cancellation of the test.</p>
     </div>
     <div style="margin: 5% auto; width: 50%;">
-        <form>
+        <form method="POST" action="{{ '/rules/' }}">
+            {% csrf_token %}
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Full Name">
+                <input type="text" name="full_name" class="form-control" placeholder="Full Name">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Contact Number">
+                <input type="text" name="phone" class="form-control" placeholder="Contact Number">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="College Roll Number">
+                <input type="text" name="rollno" class="form-control" placeholder="College Roll Number">
             </div>
             <div style="margin:5% auto;" class="text-center">
-                <button class="btn btn-success btn-large">Start Test</button>
+                <button type="submit" class="btn btn-success btn-large">Start Test</button>
             </div>
         </form>
     </div>

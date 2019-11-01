@@ -61,8 +61,7 @@ def rules(req):
             profile.save()
             return redirect('/questions/')
     else:
-        form = ProfileForm()
-        ctx = { 'user': req.user, 'form': form }
+        ctx = { 'user': req.user}
         return render(req, 'onlinetest/rules.html', ctx)
 
 def CreateProfile(req):
