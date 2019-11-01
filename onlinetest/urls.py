@@ -12,5 +12,6 @@ urlpatterns = [
     path('rules/', views.rules, name="rules"),
     path('questions/', views.questions, name="questions"),
     path('answers/<int:qid>', views.answers, name="answers"),
-    path('finish/', views.finish, name="finish")
+    path('finish/', views.finish, name="finish"),
+    path('logout/', views.logout_user, name="logout")
 ]

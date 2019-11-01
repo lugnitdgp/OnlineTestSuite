@@ -5,14 +5,23 @@ from django.contrib import messages
 from onlinetest.models import Question, Answer, Profile
 from onlinetest.forms import ProfileForm, AnswerForm
 from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth import logout
+
 
 def index(req):
+    if req.user.is_authenticated:
+        return redirect('/rules/')
     return render(req, 'onlinetest/index.html')
+
+@login_required
+def logout_user(req):
+    logout(req)
+    return redirect('/')
 
 @login_required
 def questions(req):
     questions = Question.objects.all()
-    ctx = { 'questions': questions }
+    ctx = { 'questions': questions, 'user': req.user }
     return render(req, 'onlinetest/questions.html', ctx)
 
 @login_required
@@ -52,7 +61,9 @@ def rules(req):
             profile.save()
             return redirect('/questions/')
     else:
-        return render(req, 'onlinetest/rules.html')
+        form = ProfileForm()
+        ctx = { 'user': req.user, 'form': form }
+        return render(req, 'onlinetest/rules.html', ctx)
 
 def CreateProfile(req):
     if req.method == "POST":
