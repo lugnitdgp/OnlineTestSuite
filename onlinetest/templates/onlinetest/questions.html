@@ -12,7 +12,7 @@
     {% for question in questions %}
     <div style="padding: 15% 0 20% 0; width: 60%; margin: 0 auto;" id="sub-question-box">
     <form method="POST" action="{{ '/answers' }}/{{ question.id }}">
-        {% csrf_token %}
+        {% csrf_token %}button
         <p style="font-size: 4rem; font-family: 'Mukta', sans-serif;">{{ question.id }}. {{ question.title }}</p>
         <textarea rows="5" class="form-control" name="text" type="text" placeholder="Type your answer here"></textarea>
         <br>
@@ -22,5 +22,5 @@
     {% endfor %}
 </div>
 
-<a href="{{ '/finish/' }}" style="color: white;" class="btn btn-large btn-block btn-success">Finish</button>
+<a href="{{ '/finish/' }}" style="color: white; width: 20%;" class="btn btn-large btn-block btn-success">Finish</a>
 {% endblock %}
