@@ -37,6 +37,11 @@ def UpdateTime(req):
     if req.method == "POST":
         t_left = int(req.POST['time_left'])
         profile = Profile.objects.get(user=req.user)
+        if t_left <= 0:
+            profile.time_left = 0
+            profile.save()
+            return HttpResponse(status=200)
+
         if t_left < profile.time_left:
             # possibly valid
             profile.time_left = t_left

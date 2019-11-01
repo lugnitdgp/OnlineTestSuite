@@ -10,4 +10,5 @@ urlpatterns = [
     path('rules/', views.Rules, name="rules"),
     path('questions/', views.Questions, name="questions"),
     path('createprofile/', views.CreateProfile, name="create_profile"),
+    path('update_time/', views.UpdateTime, name="update_time")
 ]
