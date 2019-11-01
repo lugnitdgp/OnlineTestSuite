@@ -7,6 +7,6 @@ app_name = 'onlinetest'
 
 urlpatterns = [
     path('', views.index, name="index"),
-    path('rules/', views.rules, name="rules"),
-    path('questions/', views.questions, name="questions"),
+    path('rules/', views.Rules, name="rules"),
+    path('questions/', views.Questions, name="questions"),
 ]
