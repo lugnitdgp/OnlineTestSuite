@@ -9,28 +9,22 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = [
+            'full_name',
             'phone',
             'rollno'
         ]
 
     def save(self, commit=True):
         profile = super(ProfileForm, self).save(commit=False)
-        #create a user programmatically here
-        if commit:
-            profile.save()
-        return profile
+
 
 class AnswerForm(forms.ModelForm):
-    question_id = forms.IntegerField()
+
     class Meta:
         model = Answer
-        fields = ['text', 'question_id']
+        fields = [
+            'text'
+        ]
 
-    def save(self, user_id, commit=True):
-        ans = super(AnswerForm, self).save(commit=False)
-        ans.user = User.objects.get(pk=user_id)
-        
-        if commit:
-            ans.save()
-        return ans
-
+    def save(self, commit=True):
+        answer = super(AnswerForm, self).save(commit=False)

@@ -1,14 +1,26 @@
 {% extends 'onlinetest/base.html' %}
 
 {% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+    <p class="alert alert-primary">{{ message }}</p>
+    {% endfor %}
+{% endif %}
+
 <div>
     {% for question in questions %}
-    <div style="padding: 15% 0 25% 0; width: 60%; margin: 0 auto;" id="sub-question-box">
+    <div style="padding: 15% 0 20% 0; width: 60%; margin: 0 auto;" id="sub-question-box">
+    <form method="POST" action="{{ '/answers' }}/{{ question.id }}">
+        {% csrf_token %}
         <p style="font-size: 4rem; font-family: 'Mukta', sans-serif;">{{ question.id }}. {{ question.title }}</p>
-        <textarea rows="5" class="form-control" type="text" placeholder="Type your answer here"></textarea>
+        <textarea rows="5" class="form-control" name="text" type="text" placeholder="Type your answer here"></textarea>
+        <br>
+        <button style="color: white;" type="submit" class="btn btn-large btn-block btn-primary">Save</button>
+    </form>
     </div>
     {% endfor %}
 </div>
 
-<button class="btn btn-large btn-block btn-primary">Finish</button>
+<a href="{{ '/finish/' }}" style="color: white;" class="btn btn-large btn-block btn-success">Finish</button>
 {% endblock %}

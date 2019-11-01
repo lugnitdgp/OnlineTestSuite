@@ -1,27 +1,58 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from onlinetest.models import Question, Profile
+from django.contrib import messages
+from onlinetest.models import Question, Answer, Profile
 from onlinetest.forms import ProfileForm, AnswerForm
-from django.http import HttpResponseRedirect, HttpResponse
-
+from django.http import HttpResponse, HttpResponseRedirect
 
 def index(req):
     return render(req, 'onlinetest/index.html')
 
-# @login_required
-def Questions(req):
-    if req.method == "POST":
-        ans_form = AnswerForm(req.POST)
-        if ans_form.is_valid():
-            ans_form.save(user_id=req.user.pk)
-        
-    else:
-        questions = Question.objects.all()
-        ctx = { 'questions': questions }
-        return render(req, 'onlinetest/questions.html', ctx)
+@login_required
+def questions(req):
+    questions = Question.objects.all()
+    ctx = { 'questions': questions }
+    return render(req, 'onlinetest/questions.html', ctx)
 
-def Rules(req):
-    return render(req, 'onlinetest/rules.html')
+@login_required
+def answers(req, qid):
+    if req.method == 'POST':
+        form = AnswerForm(req.POST)
+        if form.is_valid:
+            question = Question.objects.get(id=qid)
+            user = User.objects.get(id=req.user.id)
+            already_submitted = Answer.objects.filter(question=question, user=user).exists()
+            if already_submitted:
+                answer = Answer.objects.filter(question=question, user=user)[0]
+                answer.text = req.POST['text']
+                answer.save()
+                messages.info(req, 'Your answer for Question {} has been updated.'.format(qid))
+            else:
+                answer = Answer(question=question, user=user, text=req.POST['text'])
+                answer.save()
+                messages.info(req, 'Successfully submitted answer for Question {}.'.format(qid))
+            return redirect('/questions/')
+        else:
+            messages.info(req, 'Please supply a valid answer.')
+            return redirect('/questions/')
+    else:
+        return HttpResponse(status=404)
+
+@login_required
+def rules(req):
+    if req.method == 'POST':
+        form = ProfileForm(req.POST)
+        if form.is_valid:
+            full_name = req.POST['full_name']
+            phone = req.POST['phone']
+            rollno = req.POST['rollno']
+            user = User.objects.get(id=req.user.id)
+            profile = Profile(user=user, full_name=full_name, phone=phone, rollno=rollno)
+            profile.save()
+            return redirect('/questions/')
+    else:
+        return render(req, 'onlinetest/rules.html')
 
 def CreateProfile(req):
     if req.method == "POST":
@@ -53,5 +84,6 @@ def UpdateTime(req):
     else:
         return None
 
-
-
+@login_required
+def finish(req):
+    return render(req, 'onlinetest/finish.html')
