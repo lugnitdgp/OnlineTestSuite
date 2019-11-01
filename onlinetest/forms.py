@@ -1,6 +1,6 @@
 from django import forms
-from onlinetest.models import Profile
-
+from onlinetest.models import Profile, Answer
+from django.contrib.auth.models import User
 
 class ProfileForm(forms.ModelForm):
     # fields for user creation
@@ -18,3 +18,18 @@ class ProfileForm(forms.ModelForm):
         if commit:
             profile.save()
         return profile
+
+class AnswerForm(forms.ModelForm):
+    question_id = forms.IntegerField()
+    class Meta:
+        model = Answer
+        fields = ['text', 'question_id']
+
+    def save(self, user_id, commit=True):
+        ans = super(AnswerForm, self).save(commit=False)
+        ans.user = User.objects.get(pk=user_id)
+        
+        if commit:
+            ans.save()
+        return ans
+

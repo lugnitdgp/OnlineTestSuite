@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from onlinetest.models import Question
-from onlinetest.forms import ProfileForm
+from onlinetest.forms import ProfileForm, AnswerForm
 from django.http import HttpResponseRedirect
 
 
@@ -11,7 +11,10 @@ def index(req):
 # @login_required
 def Questions(req):
     if req.method == "POST":
-        pass
+        ans_form = AnswerForm(req.POST)
+        if ans_form.is_valid():
+            ans_form.save(user_id=req.user.pk)
+        
     else:
         questions = Question.objects.all()
         ctx = { 'questions': questions }
