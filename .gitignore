@@ -23,4 +23,6 @@ db.json
 static/*
 ##
 dump.json
+##
+onlinetest/migrations/00*
 
