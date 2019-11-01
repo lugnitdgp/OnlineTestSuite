@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from onlinetest.models import Question
+from onlinetest.forms import ProfileForm
+from django.http import HttpResponseRedirect
 
 
 def index(req):
@@ -20,4 +22,10 @@ def Rules(req):
 
 def CreateProfile(req):
     if req.method == "POST":
-        form = 
+        form = ProfileForm(req.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('questions/', {})
+    else:
+        form = ProfileForm()
+        return render(req, 'onlinetest/register.html', {'form':form})
