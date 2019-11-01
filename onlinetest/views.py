@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from onlinetest.models import Question
+from onlinetest.models import Question, Profile
 from onlinetest.forms import ProfileForm, AnswerForm
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 
 
 def index(req):
@@ -32,3 +32,21 @@ def CreateProfile(req):
     else:
         form = ProfileForm()
         return render(req, 'onlinetest/register.html', {'form':form})
+
+def UpdateTime(req):
+    if req.method == "POST":
+        t_left = int(req.POST['time_left'])
+        profile = Profile.objects.get(user=req.user)
+        if t_left < profile.time_left:
+            # possibly valid
+            profile.time_left = t_left
+            profile.save()
+            return HttpResponse(status=200)
+
+        else:
+            return HttpResponse(status=406) # 406-NotAcceptable
+    else:
+        return None
+
+
+
