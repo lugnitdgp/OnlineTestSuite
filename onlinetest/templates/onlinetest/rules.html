@@ -1,0 +1,30 @@
+{% extends 'onlinetest/base.html' %}
+
+{% block content %}
+<div style="margin-top: 5%;" class="container">
+    <div style="margin:5% auto; width: 60%;">
+        <h1 class="text-center">Rules</h1>
+        <br>
+        <p>1. Complete the test within the stipulated time. Test will automatically terminate after that.</p>
+        <p>2. There are both subjective and multiple choice questions.</p>
+        <p>3. Trying to minimize the page will result in cancellation of the test.</p>
+    </div>
+    <div style="margin: 5% auto; width: 50%;">
+        <form>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Full Name">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Contact Number">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="College Roll Number">
+            </div>
+            <div style="margin:5% auto;" class="text-center">
+                <button class="btn btn-success btn-large">Start Test</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
