@@ -14,6 +14,9 @@ function update_time(){
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("time_left=" + tleft.toString());
     }
+    else {
+        window.location.replace("/finish/");
+    }
 }
 
 var utimer;
@@ -23,6 +26,5 @@ async function start_timer_updater(init_time) {
     await sleep(5000);
     if(init_time > 0){
         utimer = setInterval(update_time, 5000);
-        // utimer = setInterval(function () { update_time(t_left); }, 5000);
     }
 }
