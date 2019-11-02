@@ -43,6 +43,9 @@ info.seconds.denominator = time.second;
 function showRemainingTime() {
     // calculate new values
     var secondsLeft = init_time;
+    if (secondsLeft === 0){
+        window.location.replace("/finish/");
+    }
     init_time -= 1;
     info.hours.value = Math.floor((secondsLeft % (time.second * time.minute * time.hour)) / (time.second * time.minute));
     info.minutes.value = Math.floor((secondsLeft % (time.second * time.minute)) / time.second);
