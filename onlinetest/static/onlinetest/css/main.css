@@ -47,13 +47,13 @@
     /* for debugging */
     /* border: 2px solid red; */
     position: absolute;
-    /* width:30%;
-    height:20%; */
     z-index:100;
     background: rgb(252, 249, 249);
     top:0;
     right:0;
     opacity: 1;
+    /* padding-top: 3em; */
+    margin-top: 3.5em;
 }
 
 #countdown p {
