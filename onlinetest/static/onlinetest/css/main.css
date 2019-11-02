@@ -1,3 +1,13 @@
+.navbar-portal{
+  border-bottom: #fff 1px solid;
+  opacity: 0.9;
+}
+
+.nav-item-portal {
+  padding-right: 8px;
+  text-decoration-color: #fff;
+}
+
 .question h2 {
     font-family: 'Mukta', sans-serif;
     font-size: 4 rem;
@@ -5,6 +15,32 @@
 
 .finish-btn {
     width: 40% !important;
+}
+
+.question-box {
+  width: 60vw !important;
+
+  padding-bottom: 15%;
+  margin: auto;
+}
+
+.question {
+  border: 1px solid #fff;
+  padding: 20px 30px;
+  margin-top: 7vh;
+  -webkit-box-shadow: -2px 7px 20px 11px rgba(0,0,0,0.3);
+  -moz-box-shadow: -2px 7px 20px 11px rgba(0,0,0,0.3);
+  box-shadow: -2px 7px 20px 11px rgba(0,0,0,0.3);
+}
+
+.questions-button {
+  width: 25vw;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+.question-name {
+  overflow: auto;
 }
 
 #countdown {
