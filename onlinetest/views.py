@@ -23,7 +23,7 @@ def logout_user(req):
 def questions(req):
     profile = Profile.objects.get(user=req.user)
     if profile.time_left <= 0:
-        return HttpResponseRedirect('/fiish/', {})
+        return HttpResponseRedirect('/finish/', {})
     questions = Question.objects.all()
     time_left = profile.time_left
     ctx = { 'questions': questions, 'user': req.user , 'time_left': time_left}
