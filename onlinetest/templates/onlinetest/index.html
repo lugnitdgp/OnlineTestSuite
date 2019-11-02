@@ -1,12 +1,14 @@
 {% extends 'onlinetest/base.html' %}
 
 {% block content %}
-<div class="container">
-    <div class="text-center">
-        <h2>Online Test Suite</h2>
-    </div>
-    <div>
-        <a href='{% url "social:begin" "google-oauth2" %}'>Google+</a>
-    </div>
+<div class="text-center container">
+    <div style="width: 20%; margin: 10%;" class="btn white darken-4 col s10 m4">
+        <a href='{% url "social:begin" "google-oauth2" %}' style="text-transform:none">
+            <div class="left">
+                <img width="20px" alt="Google &quot;G&quot; Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"/>
+            </div>
+            Login with Google
+        </a>
+   </div>
 </div>
 {% endblock %}
