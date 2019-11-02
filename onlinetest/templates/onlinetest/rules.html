@@ -10,6 +10,7 @@
         <p>3. Trying to minimize the page will result in cancellation of the test.</p>
     </div>
     <div style="margin: 5% auto; width: 50%;">
+        {% if noprofile is True %}
         <form method="POST" action="{{ '/rules/' }}">
             {% csrf_token %}
             <div class="form-group">
@@ -22,9 +23,15 @@
                 <input type="text" name="rollno" class="form-control" placeholder="College Roll Number">
             </div>
             <div style="margin:5% auto;" class="text-center">
-                <button type="submit" class="btn btn-success btn-large">Start Test</button>
+                <button type="submit" class="btn btn-success btn-large">Submit & Start Test</button>
             </div>
         </form>
+        {% else %}
+        <div style="margin:5% auto;" class="text-center">
+            <a href="{{ '/questions/' }}" role="button" class="btn btn-success btn-large">Start Test</a>
+        </div>
+        {% endif %}
+
     </div>
 </div>
 
