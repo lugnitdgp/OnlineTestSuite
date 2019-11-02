@@ -62,9 +62,8 @@ def rules(req):
             return redirect('/questions/')
     else:
         if Profile.objects.filter(user=req.user).exists():
-            ctx = {'user': req.user}
-        else:
-            ctx = {'user': req.user, 'noprofile': True}
+            return HttpResponseRedirect('/questions/',{})   
+        ctx = {'user': req.user, 'noprofile': True}
         return render(req, 'onlinetest/rules.html', ctx)
 
 def CreateProfile(req):
@@ -72,7 +71,7 @@ def CreateProfile(req):
         form = ProfileForm(req.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('questions/', {})
+            return HttpResponseRedirect('/questions/', {})
     else:
         form = ProfileForm()
         return render(req, 'onlinetest/register.html', {'form':form})
@@ -99,4 +98,4 @@ def UpdateTime(req):
 
 @login_required
 def finish(req):
-    return render(req, 'onlinetest/finish.html')
+    return render(req, 'onlinetest/finish.html',{})
