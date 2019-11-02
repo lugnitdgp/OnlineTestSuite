@@ -32,10 +32,18 @@
 </div>
 <a href="{{ '/finish/' }}" class="btn btn btn-large btn-block btn-success">Finish</a>
 
-<script>
-    
-</script>
 {% load static %}
+<script src="{% static 'onlinetest/js/main.js' %}"></script>
 <script src="{% static 'onlinetest/js/timer.js' %}"></script>
+
+<script>
+    var t_left = {{ time_left }};
+    //console.log(t_left);
+    var init_time = parseInt(t_left);// for timer element
+    var tleft = parseInt(t_left); // for updating timer
+    startTimer();
+    start_timer_updater(init_time);
+
+</script>
 
 {% endblock %}

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 from onlinetest.models import Question, Answer, Profile
 from onlinetest.forms import ProfileForm, AnswerForm
@@ -20,8 +21,12 @@ def logout_user(req):
 
 @login_required
 def questions(req):
+    profile = Profile.objects.get(user=req.user)
+    if profile.time_left <= 0:
+        return HttpResponseRedirect('/fiish/', {})
     questions = Question.objects.all()
-    ctx = { 'questions': questions, 'user': req.user }
+    time_left = profile.time_left
+    ctx = { 'questions': questions, 'user': req.user , 'time_left': time_left}
     return render(req, 'onlinetest/questions.html', ctx)
 
 @login_required
@@ -76,8 +81,10 @@ def CreateProfile(req):
         form = ProfileForm()
         return render(req, 'onlinetest/register.html', {'form':form})
 
+@csrf_exempt
 def UpdateTime(req):
     if req.method == "POST":
+        print(req.POST)
         t_left = int(req.POST['time_left'])
         profile = Profile.objects.get(user=req.user)
         if t_left <= 0:

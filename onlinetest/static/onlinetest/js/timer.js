@@ -34,19 +34,16 @@ canvasElements.forEach(function (canvas, index) {
     info[name] = { 'ctx': index, 'value': 0, 'prevValue': -1 };
 });
 var canvasKeys = Object.keys(info);
-// info.days.denominator = time.day;
 info.hours.denominator = time.hour;
 info.minutes.denominator = time.minute;
 info.seconds.denominator = time.second;
-var total = 3600;
+
 
 // show remaining time
 function showRemainingTime() {
-    var now = new Date();
-
     // calculate new values
-    var secondsLeft = total;
-    total -= 1;
+    var secondsLeft = init_time;
+    init_time -= 1;
     info.hours.value = Math.floor((secondsLeft % (time.second * time.minute * time.hour)) / (time.second * time.minute));
     info.minutes.value = Math.floor((secondsLeft % (time.second * time.minute)) / time.second);
     info.seconds.value = Math.floor(secondsLeft % time.second);
@@ -94,5 +91,7 @@ function draw(ctx, part, id, value) {
     ctx.fillText(value, specs.radius - ctx.measureText(value).width / 2, specs.radius * 2 - specs.thickness * 3);
 }
 
-// change countdown every second
-timer = setInterval(showRemainingTime, 1000);
+function startTimer(){
+    // change countdown every second
+    timer = setInterval(showRemainingTime, 1000);
+}
