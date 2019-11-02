@@ -7,7 +7,7 @@ var specs = {
     'centerY': 40,
     'thickness': 7,
     'offset': -Math.PI / 2,
-    'color': '#f00',
+    'color': '#007bff',
     'bgColor': '#ccc',
     'idFont': 'small-caps 400 10px Verdana',
     'valueFont': 'bold 30px Verdana',
@@ -89,7 +89,7 @@ function draw(ctx, part, id, value) {
     // draw text
     ctx.fillStyle = specs.fontColor;
     ctx.font = specs.idFont;
-    ctx.fillText(id, specs.radius - ctx.measureText(id).width / 2, specs.thickness * 3);
+    ctx.fillText(id, specs.radius - ctx.measureText(id).width / 2, (specs.thickness+3) * 3);
     ctx.font = specs.valueFont;
     ctx.fillText(value, specs.radius - ctx.measureText(value).width / 2, specs.radius * 2 - specs.thickness * 3);
 }
