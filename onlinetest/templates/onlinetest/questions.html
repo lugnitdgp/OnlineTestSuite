@@ -10,7 +10,7 @@
 
 <div class="container question">
     {% for question in questions %}
-    <div class="container-fluid" style="padding: 15% 0 20% 0; width: 60%; margin: 0 auto;" id="sub-question-box">
+    <div id="q{{ question.id }}" class="container-fluid" style="padding: 15% 0 20% 0; width: 60%; margin: 0 auto;" id="sub-question-box">
     <form method="POST" action="{{ '/answers' }}/{{ question.id }}">
         {% csrf_token %}
         <h2>{{ question.id }}. {{ question.title }}</h2>

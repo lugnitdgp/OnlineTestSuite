@@ -41,10 +41,10 @@ def answers(req, qid):
                 answer = Answer(question=question, user=user, text=req.POST['text'])
                 answer.save()
                 messages.info(req, 'Successfully submitted answer for Question {}.'.format(qid))
-            return redirect('/questions/')
+            return redirect('/questions/#q{}'.format(qid + 1))
         else:
             messages.info(req, 'Please supply a valid answer.')
-            return redirect('/questions/')
+            return redirect('/questions/#q{}'.format(qid))
     else:
         return HttpResponse(status=404)
 
