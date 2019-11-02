@@ -61,16 +61,10 @@ def rules(req):
             profile.save()
             return redirect('/questions/')
     else:
-<<<<<<< HEAD
-        ctx = { 'user': req.user}
-        if Profile.objects.filter(user=req.user).exists():
-            return redirect('/questions/')
-=======
         if Profile.objects.filter(user=req.user).exists():
             ctx = {'user': req.user}
         else:
             ctx = {'user': req.user, 'noprofile': True}
->>>>>>> update rules page
         return render(req, 'onlinetest/rules.html', ctx)
 
 def CreateProfile(req):
