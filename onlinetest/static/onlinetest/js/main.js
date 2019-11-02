@@ -23,7 +23,7 @@ var utimer;
 
 //this should be called only when page loads
 async function start_timer_updater(init_time) {
-    await sleep(5000);
+    //await sleep(5000);
     if(init_time > 0){
         utimer = setInterval(update_time, 5000);
     }

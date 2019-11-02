@@ -44,6 +44,9 @@ function showRemainingTime() {
     // calculate new values
     var secondsLeft = init_time;
     init_time -= 1;
+    if(init_time < 0){
+        init_time = 0;
+    }
     info.hours.value = Math.floor((secondsLeft % (time.second * time.minute * time.hour)) / (time.second * time.minute));
     info.minutes.value = Math.floor((secondsLeft % (time.second * time.minute)) / time.second);
     info.seconds.value = Math.floor(secondsLeft % time.second);
