@@ -19,9 +19,9 @@ function update_time(){
 var utimer;
 
 //this should be called only when page loads
-function start_timer_updater(init_time) {
-    sleep(5000);// needs fix, async sleep required
-    if(itime > 0){
+async function start_timer_updater(init_time) {
+    await sleep(5000);
+    if(init_time > 0){
         utimer = setInterval(update_time, 5000);
         // utimer = setInterval(function () { update_time(t_left); }, 5000);
     }
