@@ -8,6 +8,7 @@
     {% endfor %}
 {% endif %}
 
+
 <div class="container question">
     {% for question in questions %}
     <div id="q{{ question.id }}" class="container-fluid" style="padding: 15% 0 20% 0; width: 60%; margin: 0 auto;" id="sub-question-box">
@@ -22,5 +23,11 @@
     {% endfor %}
 </div>
 <a href="{{ '/finish/' }}" class="btn btn btn-large btn-block btn-success">Finish</a>
+
+<script>
+    
+</script>
+{% load static %}
+<script src="{% static 'onlinetest/js/timer.js' %}"></script>
 
 {% endblock %}

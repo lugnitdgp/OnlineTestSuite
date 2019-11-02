@@ -1,3 +1,9 @@
+function add_timer_element() {
+    var elemDiv = document.createElement('div');
+    elemDiv.style.cssText = 'position:fixed;width:100%;height:100%;opacity:0.3;z-index:100;background:#004;top:0;right:0;';
+    document.body.appendChild(elemDiv);
+}
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }

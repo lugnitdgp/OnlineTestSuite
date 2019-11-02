@@ -6,3 +6,35 @@
 .finish-btn {
     width: 40% !important;
 }
+
+#countdown {
+    /* for debugging */
+    border: 2px solid red;
+    position: absolute;
+    /* width:30%;
+    height:20%; */
+    z-index:100;
+    background: rgb(252, 249, 249);
+    top:0;
+    right:0;
+    opacity: 1;
+}
+
+#countdown p {
+  text-align: center;
+  margin: 0;
+  font-size: 2rem;
+}
+#countdown .canvas-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+@media (max-width:500px){
+  #countdown .canvas-container { max-width: 220px; }
+  #countdown canvas:nth-child(-n+2) { margin-bottom: 10px; }
+}
