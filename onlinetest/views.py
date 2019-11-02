@@ -25,6 +25,15 @@ def questions(req):
     if profile.time_left <= 0:
         return HttpResponseRedirect('/finish/', {})
     questions = Question.objects.all()
+    answers = Answer.objects.filter(user=req.user)
+    # pair up the questions with their corresponding answers
+    for question in questions:
+        is_answered = answers.filter(question=question).exists()
+        if is_answered:
+            question.answer = answers.filter(question=question)[0]
+        else:
+            question.answer = ""
+
     time_left = profile.time_left
     ctx = { 'questions': questions, 'user': req.user , 'time_left': time_left}
     return render(req, 'onlinetest/questions.html', ctx)

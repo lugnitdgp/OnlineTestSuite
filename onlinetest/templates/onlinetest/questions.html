@@ -28,7 +28,9 @@
             {% csrf_token %}
             <div class="form-group">
               <label for="question-name" class="question-name">{{ question.id }}. {{ question.title }}</label>
-              <textarea rows="5" class="form-control" name="text" type="text" placeholder="Type your answer here"></textarea>
+              <textarea rows="5" class="form-control" name="text" type="text" placeholder="Type your answer here">
+                {{ question.answer }}
+              </textarea>
               <br>
               <button style="color: white; width: 10vw; margin-left: 25vw;" type="submit" class="btn btn-md btn-primary ">Save</button>
             </div>
