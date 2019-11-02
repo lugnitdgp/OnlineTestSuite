@@ -8,29 +8,58 @@
     {% endfor %}
 {% endif %}
 
-<div id="countdown">
+<!-- <div id="countdown">
     <p><strong>Time Left</strong></p>
     <div class="canvas-container">
         <canvas id="hours"></canvas>
         <canvas id="minutes"></canvas>
         <canvas id="seconds"></canvas>
     </div>
+</div> -->
+
+<div class="container p-1">
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<div class="row">
+  <div class="col-xs-2"></div>
+  <div class="col-xs 8">
+    <div class="container-fluid question">
+        {% for question in questions %}
+        <div id="{{ question.id }}" class="container-fluid question-box" id="sub-question-box">
+        <form method="POST" action="{{ '/answers' }}/{{ question.id }}">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="question-name" class="question-name">{{ question.id }}. {{ question.title }}</label>
+              <textarea rows="5" class="form-control" name="text" type="text" placeholder="Type your answer here"></textarea>
+              <br>
+              <button style="color: white; width: 10vw; margin-left: 25vw;" type="submit" class="btn btn-md btn-primary ">Save</button>
+            </div>
+            <hr>
+            <!-- <h2>{{ question.id }}. {{ question.title }}</h2>
+            <textarea rows="5" class="form-control" name="text" type="text" placeholder="Type your answer here"></textarea>
+            <br>
+            <button style="color: white;" type="submit" class="btn btn-large btn-block btn-primary">Save</button> -->
+        </form>
+        </div>
+        {% endfor %}
+    <button href="{{ '/finish/' }}" class="btn btn-large btn-success mb-5 questions-button">Finish</button>
+    </div>
+  </div>
+  <div class="col-xs-2"></div>
 </div>
 
-<div class="container question">
-    {% for question in questions %}
-    <div id="q{{ question.id }}" class="container-fluid" style="padding: 15% 0 20% 0; width: 60%; margin: 0 auto;" id="sub-question-box">
-    <form method="POST" action="{{ '/answers' }}/{{ question.id }}">
-        {% csrf_token %}
-        <h2>{{ question.id }}. {{ question.title }}</h2>
-        <textarea rows="5" class="form-control" name="text" type="text" placeholder="Type your answer here"></textarea>
-        <br>
-        <button style="color: white;" type="submit" class="btn btn-large btn-block btn-primary">Save</button>
-    </form>
-    </div>
-    {% endfor %}
-</div>
-<a href="{{ '/finish/' }}" class="btn btn btn-large btn-block btn-success">Finish</a>
+
 
 {% load static %}
 <script src="{% static 'onlinetest/js/main.js' %}"></script>
