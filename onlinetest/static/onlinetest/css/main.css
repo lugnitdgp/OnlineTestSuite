@@ -117,18 +117,3 @@ title {
   #countdown canvas:nth-child(-n+2) { margin-bottom: 10px; }
  
 }
-/* @media (max-width:600px){
-  .login-container{
-    margin-left:30vw;
-    width:40%;
-    margin-top:60vh;
-    text-align:center;
-  }
-  .glug{
-    margin-top:20vh;
-    margin-left:20vw;
-    width:30vw !important;
-    text-align:center;
-    text-size-adjust: 30px;
-  }
-} */
