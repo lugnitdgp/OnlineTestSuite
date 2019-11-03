@@ -8,7 +8,7 @@ var specs = {
     'thickness': 7,
     'offset': -Math.PI / 2,
     'color': '#20c997',
-    'bgColor': '#ccc',
+    'bgColor': '#f8f9fa',
     'idFont': 'small-caps 400 1rem Verdana',
     'valueFont': 'bold 1.5rem Verdana',
     'fontColor': '#20c997'
