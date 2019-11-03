@@ -85,16 +85,6 @@ def rules(req):
         ctx = {'user': req.user, 'noprofile': True}
         return render(req, 'onlinetest/rules.html', ctx)
 
-def CreateProfile(req):
-    if req.method == "POST":
-        form = ProfileForm(req.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/questions/', {})
-    else:
-        form = ProfileForm()
-        return render(req, 'onlinetest/register.html', {'form':form})
-
 @csrf_exempt
 def UpdateTime(req):
     if req.method == "POST":

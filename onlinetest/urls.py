@@ -7,7 +7,6 @@ app_name = 'onlinetest'
 
 urlpatterns = [
     path('', views.index, name="index"),
-    path('createprofile/', views.CreateProfile, name="create_profile"),
     path('update_time/', views.UpdateTime, name="update_time"),
     path('rules/', views.rules, name="rules"),
     path('questions/', views.questions, name="questions"),
