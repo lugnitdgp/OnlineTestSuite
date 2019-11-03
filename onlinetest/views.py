@@ -15,7 +15,7 @@ def index(req):
         curr_time = timezone.now()
         if curr_time < config.start_time and not req.user.is_staff:
             logout_user(req)
-            return HttpResponse('Test will go live at 10.00 PM on 3rd November 2019.')
+            return HttpResponse('Test will go live at 9.00 PM on 3rd November 2019.')
         return redirect('/rules/')
     return render(req, 'onlinetest/index.html')
 
