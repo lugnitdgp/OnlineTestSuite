@@ -11,17 +11,48 @@
         </a>
    </div>
 </div> -->
-
+{% load static %}
+<style>
+    body {
+      background: url("{% static 'onlinetest/bg1.jpg' %}") no-repeat;
+      color:rgb(250, 239, 239);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-attachment: fixed;
+      background-color: black;
+      font-family: "Allerta Stencil", Sans-serif;
+    }
+    .navbar-brand{
+      color:white;
+    }
+    .navbar{
+      background-color:transparent;
+      color:white;
+    }
+    .nav-cont{
+      border-color:transparent;
+      font:white;
+    }
+}
+    </style>
+<div class="glug">
+  <img src="{% static 'onlinetest/logo.png' %}" alt="glug" style="width:15vh;height:15vh;">
+  <br>
+  <h3>Total Time: 1 hour</h3>
+  <br>
+  <h3> Window Time: 9 pm  to 3 am </h3>
+  <br>
+</div>
 <div class="row">
   <div class="col-xs-1"></div>
   <div class="col-xs-10">
-    <div class="container-fluid login-container">
+    <div class="button login-container">
+        <a href='{% url "social:begin" "google-oauth2" %}' style="text-transform:none;color:white;">
       <div class="panel panel-default">
         <div class="panel-heading">
-          LOGIN
+          Login With Google
         </div>
         <div class="panel-body">
-          <a href='{% url "social:begin" "google-oauth2" %}' style="text-transform:none">
               <div class="left">
                   <img width="20px" alt="Google &quot;G&quot; Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"/>
               </div>
