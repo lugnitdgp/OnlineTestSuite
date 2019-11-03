@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.models import User
-from onlinetest.models import Question, Answer, Profile
+from onlinetest.models import Question, Answer, Profile, Config
 
 class ProfileAdmin(admin.ModelAdmin):
 
@@ -54,3 +54,4 @@ class ProfileAdmin(admin.ModelAdmin):
 admin.site.register(Question)
 admin.site.register(Answer)
 admin.site.register(Profile, ProfileAdmin)
+admin.site.register(Config)

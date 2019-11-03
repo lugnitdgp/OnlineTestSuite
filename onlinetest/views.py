@@ -3,14 +3,19 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
-from onlinetest.models import Question, Answer, Profile
+from onlinetest.models import Question, Answer, Profile, Config
 from onlinetest.forms import ProfileForm, AnswerForm
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import logout
-
+from django.utils import timezone
 
 def index(req):
+    config = Config.objects.all().first()
     if req.user.is_authenticated:
+        curr_time = timezone.now()
+        if curr_time < config.start_time and not req.user.is_staff:
+            logout_user(req)
+            return HttpResponse('Test will go live at 10.00 PM on 3rd November 2019.')
         return redirect('/rules/')
     return render(req, 'onlinetest/index.html')
 
