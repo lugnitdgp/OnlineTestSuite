@@ -6,6 +6,7 @@ class ProfileAdmin(admin.ModelAdmin):
     change_form_template = "admin/custom_change_form.html"
 
     list_display = ['full_name','user','time_left']
+    search_fields = ['full_name']
     actions = ['increase_time_by_10']
 
     def increase_time_by_10(self, req, queryset):
