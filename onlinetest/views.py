@@ -58,11 +58,11 @@ def answers(req, qid):
                 answer = Answer.objects.filter(question=question, user=user).first()
                 answer.text = req.POST['text']
                 answer.save()
-                messages.info(req, 'Your answer for Question {} has been updated.'.format(qid))
+                messages.info(req, 'Your answer for the Question has been updated.')
             else:
                 answer = Answer(question=question, user=user, text=req.POST['text'])
                 answer.save()
-                messages.info(req, 'Successfully submitted answer for Question {}.'.format(qid))
+                messages.info(req, 'Successfully submitted answer for Question)')
             return redirect('/questions/#q{}'.format(qid + 1))
         else:
             messages.info(req, 'Please supply a valid answer.')
