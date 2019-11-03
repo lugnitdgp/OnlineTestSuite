@@ -17,8 +17,6 @@
     </div>
 </div>
 
-
-
 <div class="container question">
     {% for question in questions %}
     <div id="{{ question.id }}" class="container-fluid question-box" id="sub-question-box">
@@ -26,25 +24,20 @@
         {% csrf_token %}
         <div class="form-group">
           <label for="question-name" class="question-name">{{ question.id }}. {{ question.title }}</label>
-          <textarea rows="5" class="form-control" name="text" type="text" placeholder="Type your answer here">
-            {{ question.answer }}
-          </textarea>
+          {% if question.answer %}
+          <textarea rows="5" class="form-control" name="text" type="text" placeholder="Type your answer here">{{ question.answer }}</textarea>
+          {% else %}
+          <textarea rows="5" class="form-control" name="text" type="text" placeholder="Type your answer here"></textarea>
+          {% endif %}
           <br>
           <button style="color: white; width: 10vw; margin-left: 25vw;" type="submit" class="btn btn-md btn-primary ">Save</button>
         </div>
         <hr>
-        <!-- <h2>{{ question.id }}. {{ question.title }}</h2>
-        <textarea rows="5" class="form-control" name="text" type="text" placeholder="Type your answer here"></textarea>
-        <br>
-        <button style="color: white;" type="submit" class="btn btn-large btn-block btn-primary">Save</button> -->
     </form>
     </div>
     {% endfor %}
-<a href="{{ '/finish/' }}" class="btn btn-large btn-success mb-5 questions-button">Finish</a>
+    <a href="{{ '/finish/' }}" class="btn btn-large btn-success mb-5 questions-button">Finish</a>
 </div>
-
-
-
 
 {% load static %}
 <script src="{% static 'onlinetest/js/main.js' %}"></script>

@@ -30,9 +30,9 @@ def questions(req):
     for question in questions:
         is_answered = answers.filter(question=question).exists()
         if is_answered:
-            question.answer = answers.filter(question=question)[0]
+            question.answer = answers.filter(question=question).first().text
         else:
-            question.answer = ""
+            question.answer = None
 
     time_left = profile.time_left
     ctx = { 'questions': questions, 'user': req.user , 'time_left': time_left}
@@ -47,7 +47,7 @@ def answers(req, qid):
             user = User.objects.get(id=req.user.id)
             already_submitted = Answer.objects.filter(question=question, user=user).exists()
             if already_submitted:
-                answer = Answer.objects.filter(question=question, user=user)[0]
+                answer = Answer.objects.filter(question=question, user=user).first()
                 answer.text = req.POST['text']
                 answer.save()
                 messages.info(req, 'Your answer for Question {} has been updated.'.format(qid))
