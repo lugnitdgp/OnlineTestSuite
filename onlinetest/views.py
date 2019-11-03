@@ -114,4 +114,5 @@ def UpdateTime(req):
 
 @login_required
 def finish(req):
-    return render(req, 'onlinetest/finish.html',{})
+    ctx = { 'user': req.user }
+    return render(req, 'onlinetest/finish.html', ctx)
