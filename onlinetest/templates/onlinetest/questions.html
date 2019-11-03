@@ -9,7 +9,7 @@
 {% endif %}
 
 <div id="countdown">
-    <p><strong>Time Left</strong></p>
+    <p style="font-size: 1.3rem;">Time Left</p>
     <div class="canvas-container">
         <canvas id="hours"></canvas>
         <canvas id="minutes"></canvas>
@@ -18,35 +18,31 @@
 </div>
 
 
-<div class="row">
-  <div class="col-xs-2"></div>
-  <div class="col-xs 8" style="width: 60%;">
-    <div class="container question">
-        {% for question in questions %}
-        <div id="{{ question.id }}" class="container-fluid question-box" id="sub-question-box">
-        <form method="POST" action="{{ '/answers' }}/{{ question.id }}">
-            {% csrf_token %}
-            <div class="form-group">
-              <label for="question-name" class="question-name">{{ question.id }}. {{ question.title }}</label>
-              <textarea rows="5" class="form-control" name="text" type="text" placeholder="Type your answer here">
-                {{ question.answer }}
-              </textarea>
-              <br>
-              <button style="color: white; width: 10vw; margin-left: 25vw;" type="submit" class="btn btn-md btn-primary ">Save</button>
-            </div>
-            <hr>
-            <!-- <h2>{{ question.id }}. {{ question.title }}</h2>
-            <textarea rows="5" class="form-control" name="text" type="text" placeholder="Type your answer here"></textarea>
-            <br>
-            <button style="color: white;" type="submit" class="btn btn-large btn-block btn-primary">Save</button> -->
-        </form>
+
+<div class="container question">
+    {% for question in questions %}
+    <div id="{{ question.id }}" class="container-fluid question-box" id="sub-question-box">
+    <form method="POST" action="{{ '/answers' }}/{{ question.id }}">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="question-name" class="question-name">{{ question.id }}. {{ question.title }}</label>
+          <textarea rows="5" class="form-control" name="text" type="text" placeholder="Type your answer here">
+            {{ question.answer }}
+          </textarea>
+          <br>
+          <button style="color: white; width: 10vw; margin-left: 25vw;" type="submit" class="btn btn-md btn-primary ">Save</button>
         </div>
-        {% endfor %}
-    <a href="{{ '/finish/' }}" class="btn btn-large btn-success mb-5 questions-button">Finish</a>
+        <hr>
+        <!-- <h2>{{ question.id }}. {{ question.title }}</h2>
+        <textarea rows="5" class="form-control" name="text" type="text" placeholder="Type your answer here"></textarea>
+        <br>
+        <button style="color: white;" type="submit" class="btn btn-large btn-block btn-primary">Save</button> -->
+    </form>
     </div>
-  </div>
-  <div class="col-xs-2"></div>
+    {% endfor %}
+<a href="{{ '/finish/' }}" class="btn btn-large btn-success mb-5 questions-button">Finish</a>
 </div>
+
 
 
 
