@@ -8,9 +8,9 @@
     {% endfor %}
 {% endif %}
 
-<div id="countdown">
-    <p><strong>Time Left</strong></p>
-    <div class="canvas-container">
+<div id="countdown" class="row">
+    <div class="col-12"><strong>Time Left</strong></div>
+    <div class="canvas-container col-12">
         <canvas id="hours"></canvas>
         <canvas id="minutes"></canvas>
         <canvas id="seconds"></canvas>
@@ -20,7 +20,7 @@
 
 <div class="row">
   <div class="col-xs-2"></div>
-  <div class="col-xs 8" style="width: 60%;">
+  <div class="col-md-10 offset-md-1 col-xs-12">
     <div class="container question">
         {% for question in questions %}
         <div id="{{ question.id }}" class="container-fluid question-box" id="sub-question-box">
@@ -32,7 +32,7 @@
                 {{ question.answer }}
               </textarea>
               <br>
-              <button style="color: white; width: 10vw; margin-left: 25vw;" type="submit" class="btn btn-md btn-primary ">Save</button>
+              <button type="submit" class="answer-button btn btn-md btn-primary ">Save</button>
             </div>
             <hr>
             <!-- <h2>{{ question.id }}. {{ question.title }}</h2>
