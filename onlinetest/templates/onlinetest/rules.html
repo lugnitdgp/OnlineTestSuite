@@ -2,12 +2,12 @@
 
 {% block content %}
 <div style="margin-top: 5%;" class="container">
-    <div style="margin: 10% auto; width: 60%;">
+    <div style="margin: 10% auto 5% auto; width: 60%;">
         <h1 class="text-center">Rules</h1>
         <br>
-        <p>1. Complete the test within the stipulated time. Test will automatically terminate after that.</p>
-        <p>2. There are both subjective and multiple choice questions.</p>
-        <p>3. Trying to minimize the page will result in cancellation of the test.</p>
+        <p>1. You will have 1 hour to complete the test. Test will automatically terminate after that.</p>
+        <p>2. Questions are subjective. You can submit an answer multiple times.</p>
+        <p>3. The timer will start on clicking the Submit and Start test button.</p>
     </div>
     <div style="margin: 5% auto; width: 50%;">
         {% if noprofile is True %}
@@ -34,5 +34,4 @@
 
     </div>
 </div>
-
 {% endblock %}
