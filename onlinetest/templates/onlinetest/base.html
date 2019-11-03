@@ -27,7 +27,7 @@
                 </div>
             </nav> -->
 
-            <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top navbar-portal">
+            <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top navbar-portal">
               <div class="container">
                 <a href="#" class="navbar-brand">ONLINE TEST SUITE</a>
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -46,7 +46,28 @@
                   </ul>
                 </div>
               </div>
-            </nav>
+            </nav> -->
+
+            <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
+      <div class="container">
+        <a href="index.html" class="navbar-brand">ONLINE TEST SUITE</a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav ml-auto">
+            {% if not user.is_anonymous %}
+            <li class="nav-item">
+              <a class="nav-link"><span class="fa fa-user pr-2"></span>{{ user }}</a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ '/logout/' }}" class="nav-link"><span class="fa fa-sign-out pr-2"></span>Logout</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
 
 
         {% block content %}
