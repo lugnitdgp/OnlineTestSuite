@@ -65,14 +65,16 @@ body {
 #countdown {
     /* for debugging */
     /* border: 2px solid red; */
-    position: absolute;
+    position: fixed;
     z-index:100;
     background: rgb(252, 249, 249);
     top:0;
     right:0;
     opacity: 1;
-    /* padding-top: 3em; */
-    margin-top: 3.5em;
+    padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+    margin-top: 86vh;
+    box-shadow: -7px 10px 18px -8px #000;
+    border-radius: 5%;
 }
 
 #countdown p {
