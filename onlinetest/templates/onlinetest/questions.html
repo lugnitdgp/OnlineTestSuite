@@ -20,8 +20,8 @@
 
 <div class="row">
   <div class="col-xs-2"></div>
-  <div class="col-xs 8">
-    <div class="container-fluid question">
+  <div class="col-xs 8" style="width: 60%;">
+    <div class="container question">
         {% for question in questions %}
         <div id="{{ question.id }}" class="container-fluid question-box" id="sub-question-box">
         <form method="POST" action="{{ '/answers' }}/{{ question.id }}">

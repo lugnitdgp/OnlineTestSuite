@@ -1,12 +1,19 @@
-.navbar-portal{
-  border-bottom: #fff 1px solid;
-  opacity: 0.9;
+body {
+  background: url("../bg.jpg") no-repeat;
+  background-size: cover;
 }
 
-.nav-item-portal {
+.navbar {
+  border-bottom: #000 1px solid;
+  opacity: 0.8; }
+
+.nav-link {
+  font-size: 17px;
+  margin-right: 13px; }
+
+.nav-item {
   padding-right: 8px;
-  text-decoration-color: #fff;
-}
+  text-decoration-color: #fff; }
 
 .question h2 {
     font-family: 'Mukta', sans-serif;
@@ -27,7 +34,19 @@
 .question {
   border: 1px solid #fff;
   padding: 20px 30px;
-  margin-top: 7vh;
+  margin-top: 20vh;
+  -webkit-box-shadow: -2px 7px 20px 11px rgba(0,0,0,0.3);
+  -moz-box-shadow: -2px 7px 20px 11px rgba(0,0,0,0.3);
+  box-shadow: -2px 7px 20px 11px rgba(0,0,0,0.3);
+  margin-left: 40vw;
+}
+
+.login-container {
+  border: 1px solid #fff;
+  padding: 20px 30px;
+  margin-top: 50vh;
+  margin-left: 30%;
+  margin-right: 30%;
   -webkit-box-shadow: -2px 7px 20px 11px rgba(0,0,0,0.3);
   -moz-box-shadow: -2px 7px 20px 11px rgba(0,0,0,0.3);
   box-shadow: -2px 7px 20px 11px rgba(0,0,0,0.3);
