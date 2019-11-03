@@ -88,6 +88,7 @@ def rules(req):
         ctx = {'user': req.user, 'noprofile': True}
         return render(req, 'onlinetest/rules.html', ctx)
 
+@login_required
 @csrf_exempt
 def UpdateTime(req):
     if req.method == "POST":
