@@ -3,6 +3,10 @@ body {
   background-size: cover;
 }
 
+title {
+  font-weight: bold;
+}
+
 .navbar {
   border-bottom: #000 1px solid;
   opacity: 0.8; }
@@ -26,19 +30,19 @@ body {
 
 .question-box {
   width: 60vw !important;
-
-  padding-bottom: 15%;
+  padding-bottom: 10%;
   margin: auto;
 }
 
 .question {
   border: 1px solid #fff;
-  padding: 20px 30px;
-  margin-top: 20vh;
+  /* padding: 20px 30px; */
+  padding-top: 3vh;
+  margin-top: 10vh;
   -webkit-box-shadow: -2px 7px 20px 11px rgba(0,0,0,0.3);
   -moz-box-shadow: -2px 7px 20px 11px rgba(0,0,0,0.3);
   box-shadow: -2px 7px 20px 11px rgba(0,0,0,0.3);
-  margin-left: 40vw;
+  /* margin-left: 40vw; */
 }
 
 .login-container {
@@ -61,6 +65,7 @@ body {
 .question-name {
   overflow: auto;
 }
+
 
 #countdown {
     /* for debugging */
