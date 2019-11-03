@@ -7,8 +7,9 @@
     <p class="alert alert-primary">{{ message }}</p>
     {% endfor %}
 {% endif %}
-<div id="countdown">
-    <p style="font-size: 1.3rem;">Time Left</p>
+
+<div id="countdown" calss="container-fluid">
+    <p>Time Left</p>
     <div class="canvas-container">
         <canvas id="minutes"></canvas>
         <canvas id="seconds"></canvas>
@@ -28,14 +29,14 @@
           <textarea rows="5" class="form-control" name="text" type="text" placeholder="Type your answer here"></textarea>
           {% endif %}
           <br>
-          <button style="color: white; width: 10vw; margin-left: 25vw;" type="submit" class="btn btn-md btn-primary ">Save</button>
+          <button type="submit" class="btn btn-md btn-primary questions-button ">Save</button>
         </div>
         <hr>
     </form>
     </div>
     {% endfor %}
     <div class="text-center">
-        <a href="{{ '/finish/' }}" class="btn btn-large btn-success mb-5 questions-button">Finish</a>
+        <a href="{{ '/finish/' }}" class="btn btn-large btn-success finish-btn">Finish</a>
     </div>
 </div>
 

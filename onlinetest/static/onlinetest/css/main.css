@@ -38,11 +38,11 @@ title {
 }
 
 .finish-btn {
-    width: 40% !important;
+    width: 35% !important;
 }
 
 .question-box {
-  width: 60vw !important;
+  width: 85% !important;
   padding-bottom: 10%;
   color:white;
   margin: auto;
@@ -73,9 +73,9 @@ title {
 }
 
 .questions-button {
-  width: 25vw;
-  margin-left: 30%;
-  margin-right: 30%;
+  width: 30% ;
+  margin-left: 35%;
+  /* margin-right: 30%; */
 }
 
 .question-name {
@@ -93,7 +93,7 @@ title {
     right:0;
     opacity: 1;
     padding: 0.2rem 0.4rem 0.2rem 0.4rem;
-    margin-top: 86vh;
+    margin-top: 80vh;
     box-shadow: -7px 10px 18px -8px #000;
     border-radius: 5%;
 }
@@ -101,7 +101,7 @@ title {
 #countdown p {
   text-align: center;
   margin: 0;
-  font-size: 2rem;
+  font-size: 1rem;
 }
 #countdown .canvas-container {
   display: flex;
