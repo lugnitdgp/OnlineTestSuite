@@ -20,7 +20,8 @@ class ProfileAdmin(admin.ModelAdmin):
         questions = Question.objects.all()
         # for q in questions:
         #     print(q)
-        u = User.objects.get(id=object_id)
+        p = Profile.objects.get(id=object_id)
+        u = User.objects.get(username=p.user.username)
         # print(u)
         already_submitted = []
         for q in questions:
