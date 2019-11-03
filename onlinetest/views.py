@@ -18,7 +18,7 @@ def index(req):
             return HttpResponse('First round of auditions will go live at 9.00 PM on 3rd November 2019.')
         if curr_time > config.end_time and not req.user.is_staff:
             logout_user(req)
-            return HttpResponse('First round of GLUG auditions has ended. See you next year :)')
+            return HttpResponse('First round of GLUG auditions has finished. See you next year :)')
         return redirect('/rules/')
     return render(req, 'onlinetest/index.html')
 
