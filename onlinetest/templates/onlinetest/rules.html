@@ -1,6 +1,29 @@
 {% extends 'onlinetest/base.html' %}
 
 {% block content %}
+{% load static %}
+<style>
+        body {
+          background: url("{% static 'onlinetest/bg1.jpg' %}") no-repeat;
+          color:rgb(250, 239, 239);
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          background-attachment: fixed;
+          background-color: black;
+          font-family: "Allerta Stencil", Sans-serif;
+        }
+       
+        .navbar{
+          background-color:transparent;
+          color:white;
+        }
+        .nav-cont{
+          border-color:transparent;
+        }
+        .nav-link{
+            color:white;
+        }
+</style>
 <div style="margin-top: 5%;" class="container">
     <div style="margin: 10% auto 5% auto; width: 60%;">
         <h1 class="text-center">Rules</h1>

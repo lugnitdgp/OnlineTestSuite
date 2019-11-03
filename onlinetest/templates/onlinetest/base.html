@@ -4,13 +4,15 @@
         <title>GLUG Auditions 2019</title>
         {% load static %}
         <link rel="stylesheet" type="text/css" media="screen" href="{% static 'onlinetest/css/main.css' %}" />
+        <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
 
-    <nav class="navbar navbar-expand-sm bg-light navbar-light">
-      <div class="container">
-        <a href="/" class="navbar-brand">GLUG Auditions 2019</a>
+   
+            <nav class="navbar navbar-expand-sm navbar-light fixed-top">
+      <div class="container nav-cont">
+        <h4>GLUG Auditions 2019</h4>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -18,10 +20,10 @@
           <ul class="navbar-nav ml-auto">
             {% if not user.is_anonymous %}
             <li class="nav-item">
-              <a class="nav-link"><span class="fa fa-user pr-2"></span>Hi, {{ user }}</a>
+              <a class="nav-link" style="color:white"><span class="fa fa-user pr-2"></span>{{ user }}</a>
             </li>
             <li class="nav-item">
-              <a href="{{ '/logout/' }}" class="nav-link"><span class="fa fa-sign-out pr-2"></span>Logout</a>
+              <a href="{{ '/logout/' }}" class="nav-link" style="color:white"><span class="fa fa-sign-out pr-2"></span>Logout</a>
             </li>
             {% endif %}
           </ul>

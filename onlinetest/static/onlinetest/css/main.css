@@ -1,14 +1,27 @@
 body {
-  background: url("../bg.jpg") no-repeat;
-  background-size: cover;
+  background: url("../bg.jpg");
+  background-size: stretch;
+  color:white;
 }
+.glug{
+  position:absolute;
+  margin-top:15vh;
+  margin-left:20vw;
+  width:60vw;
+  display:inline-block;
+  text-align:center;
 
 title {
   font-weight: bold;
 }
 
+}
+.panel{
+  padding-top:5px;
+  padding-bottom:5px;
+}
 .navbar {
-  border-bottom: #000 1px solid;
+  border-bottom: rgb(26, 24, 24) 1px solid;
   opacity: 0.8; }
 
 .nav-link {
@@ -31,6 +44,7 @@ title {
 .question-box {
   width: 60vw !important;
   padding-bottom: 10%;
+  color:white;
   margin: auto;
 }
 
@@ -46,14 +60,16 @@ title {
 }
 
 .login-container {
-  border: 1px solid #fff;
-  padding: 20px 30px;
-  margin-top: 50vh;
-  margin-left: 30%;
-  margin-right: 30%;
-  -webkit-box-shadow: -2px 7px 20px 11px rgba(0,0,0,0.3);
-  -moz-box-shadow: -2px 7px 20px 11px rgba(0,0,0,0.3);
-  box-shadow: -2px 7px 20px 11px rgba(0,0,0,0.3);
+  position: absolute;
+  border: 1px solid rgba(64, 185, 92, 0.3);
+  margin-left:40vw;
+  width:20%;
+  display:inline-block;
+  margin-top:50vh;
+  text-align:center;
+  -webkit-box-shadow: -2px 7px 20px 11px rgba(46, 184, 154, 0.3);
+  -moz-box-shadow: -2px 7px 20px 11px rgba(64, 185, 154, 0.3);
+  box-shadow: -2px 7px 20px 11px rgba(64, 185, 154, 0.3);
 }
 
 .questions-button {
@@ -96,7 +112,23 @@ title {
   margin: 0 auto;
 }
 
-@media (max-width:500px){
+ @media (max-width:500px){
   #countdown .canvas-container { max-width: 220px; }
   #countdown canvas:nth-child(-n+2) { margin-bottom: 10px; }
+ 
 }
+/* @media (max-width:600px){
+  .login-container{
+    margin-left:30vw;
+    width:40%;
+    margin-top:60vh;
+    text-align:center;
+  }
+  .glug{
+    margin-top:20vh;
+    margin-left:20vw;
+    width:30vw !important;
+    text-align:center;
+    text-size-adjust: 30px;
+  }
+} */
