@@ -1,0 +1,11 @@
+{% extends 'admin/change_form.html' %}
+
+{% block after_related_objects %}
+    <div>
+        <ul>
+        {% for i in osm_data %}
+        <li>{{ i.0 }}:{{ i.1 }}</li>
+        {% endfor %}
+        </ul>    
+    </div>
+{% endblock %}
