@@ -25,7 +25,7 @@ class Answer(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    time_left = models.IntegerField(default=3600) #time in seconds, default 1hour
+    time_left = models.IntegerField(default=4500) #time in seconds, default 1hour
     full_name = models.CharField(max_length=255)
     phone = models.CharField(max_length=14)
     rollno = models.CharField(max_length=10)
