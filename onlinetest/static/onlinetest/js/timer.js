@@ -7,11 +7,11 @@ var specs = {
     'centerY': 40,
     'thickness': 7,
     'offset': -Math.PI / 2,
-    'color': '#007bff',
+    'color': '#20c997',
     'bgColor': '#ccc',
-    'idFont': 'small-caps 400 10px Verdana',
-    'valueFont': 'bold 30px Verdana',
-    'fontColor': '#000'
+    'idFont': 'small-caps 400 1rem Verdana',
+    'valueFont': 'bold 1.5rem Verdana',
+    'fontColor': '#20c997'
 };
 var time = {
     'millisecond': 1000,

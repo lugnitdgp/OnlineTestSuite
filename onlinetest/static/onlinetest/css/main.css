@@ -1,6 +1,6 @@
 body {
-  background: url("../bg.jpg");
-  background-size: stretch;
+  background: url("../bg1.jpg");
+  background-repeat: cover;
   color:white;
 }
 .glug{
@@ -11,9 +11,6 @@ body {
   display:inline-block;
   text-align:center;
 
-title {
-  font-weight: bold;
-}
 
 }
 .panel{
@@ -22,11 +19,17 @@ title {
 }
 .navbar {
   border-bottom: rgb(26, 24, 24) 1px solid;
-  opacity: 0.8; }
+  background-color:rgba(33, 56, 50, 0.603);
+  color:white;
+  font-family: "Allerta Stencil", Sans-serif;
+}
 
 .nav-link {
   font-size: 17px;
-  margin-right: 13px; }
+  font-weight: bold;
+  margin-right: 13px;
+  color:#20e6aa !important;
+}
 
 .nav-item {
   padding-right: 8px;
@@ -39,6 +42,8 @@ title {
 
 .finish-btn {
     width: 35% !important;
+    background-color: rgba(64, 185, 155, 0.9) !important;
+    margin-bottom: 5vh;
 }
 
 .question-box {
@@ -53,10 +58,10 @@ title {
   /* padding: 20px 30px; */
   padding-top: 3vh;
   margin-top: 10vh;
-  -webkit-box-shadow: -2px 7px 20px 11px rgba(0,0,0,0.3);
-  -moz-box-shadow: -2px 7px 20px 11px rgba(0,0,0,0.3);
-  box-shadow: -2px 7px 20px 11px rgba(0,0,0,0.3);
-  /* margin-left: 40vw; */
+  margin-bottom: 10vh;
+  -webkit-box-shadow: -2px 7px 20px 11px #20c997;
+  -moz-box-shadow: -2px 7px 20px 11px  #20c997;
+  box-shadow: -2px 7px 20px 11px #20c997;
 }
 
 .login-container {
@@ -76,6 +81,8 @@ title {
   width: 30% ;
   margin-left: 35%;
   /* margin-right: 30%; */
+  background-color: #0f332d !important;
+
 }
 
 .question-name {
@@ -88,14 +95,15 @@ title {
     /* border: 2px solid red; */
     position: fixed;
     z-index:100;
-    background: rgb(252, 249, 249);
+    background:#1e2225;
     top:0;
     right:0;
     opacity: 1;
     padding: 0.2rem 0.4rem 0.2rem 0.4rem;
     margin-top: 80vh;
-    box-shadow: -7px 10px 18px -8px #000;
+    box-shadow: -7px 10px 18px -8px rgba(64, 185, 154, 0.5);
     border-radius: 5%;
+    color: aquamarine;
 }
 
 #countdown p {
@@ -117,18 +125,3 @@ title {
   #countdown canvas:nth-child(-n+2) { margin-bottom: 10px; }
  
 }
-/* @media (max-width:600px){
-  .login-container{
-    margin-left:30vw;
-    width:40%;
-    margin-top:60vh;
-    text-align:center;
-  }
-  .glug{
-    margin-top:20vh;
-    margin-left:20vw;
-    width:30vw !important;
-    text-align:center;
-    text-size-adjust: 30px;
-  }
-} */

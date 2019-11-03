@@ -12,7 +12,7 @@
     <body>
 
    
-            <nav class="navbar navbar-expand-sm navbar-light fixed-top">
+    <nav class="navbar navbar-expand-sm navbar-light">
       <div class="container nav-cont">
         <h4>GLUG Auditions 2019</h4>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -22,10 +22,10 @@
           <ul class="navbar-nav ml-auto">
             {% if not user.is_anonymous %}
             <li class="nav-item">
-              <a class="nav-link" style="color:white"><span class="fa fa-user pr-2"></span>{{ user }}</a>
+              <a class="nav-link"><span class="fa fa-user pr-2"></span>{{ user }}</a>
             </li>
             <li class="nav-item">
-              <a href="{{ '/logout/' }}" class="nav-link" style="color:white"><span class="fa fa-sign-out pr-2"></span>Logout</a>
+              <a href="{{ '/logout/' }}" class="nav-link"><span class="fa fa-sign-out pr-2"></span>Logout</a>
             </li>
             {% endif %}
           </ul>
