@@ -13,5 +13,6 @@ urlpatterns = [
     path('answers/<int:qid>', views.answers, name="answers"),
     path('finish/', views.finish, name="finish"),
     path('logout/', views.logout_user, name="logout"),
-    path('results/', views.results, name="results")
+    path('results/', views.results, name="results"),
+    path('print_results/', views.print_results, name="print_results")
 ]

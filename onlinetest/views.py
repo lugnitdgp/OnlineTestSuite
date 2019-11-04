@@ -8,6 +8,7 @@ from onlinetest.forms import ProfileForm, AnswerForm
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import logout
 from django.utils import timezone
+import os
 
 def index(req):
     config = Config.objects.all().first()
@@ -124,4 +125,26 @@ def results(req):
         ctx = {'profiles': profiles, 'count': len(profiles)}
         return render(req, 'onlinetest/results.html', ctx)
     else:
-        return HttpResponse('You are not allowed to access the results now.')
+        return HttpResponse('You are not allowed to access the results.')
+
+
+def scrape_answers(full_name, user_id):
+    answers = Answer.objects.filter(user=user_id)
+    f = open(os.path.join(os.environ['HOME'], 'results.txt'), 'w')
+    f.write('################################\n')
+    f.write(full_name + "\n")
+    f.write('---------------------------------\n')
+
+    for answer in answers:
+        f.write(answer.text)
+        f.write('\n')
+
+@login_required
+def print_results(req):
+    if req.user.is_staff:
+        profiles = Profile.objects.filter(selected=True)
+        for profile in profiles:
+            scrape_answers(profile.full_name, profile.user)
+        return HttpResponse('Done Saving Results.')
+    else:
+        return HttpResponse('You are not allowed to access the results.')
