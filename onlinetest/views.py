@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 from onlinetest.models import Question, Answer, Profile, Config
@@ -150,7 +151,7 @@ def print_results(req):
     else:
         return HttpResponse('You are not allowed to access the results.')
 
-
+@staff_member_required
 def export_profile_csv(req):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="profiles.csv"'
