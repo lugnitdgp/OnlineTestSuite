@@ -14,5 +14,6 @@ urlpatterns = [
     path('finish/', views.finish, name="finish"),
     path('logout/', views.logout_user, name="logout"),
     path('results/', views.results, name="results"),
-    path('print_results/', views.print_results, name="print_results")
+    path('print_results/', views.print_results, name="print_results"),
+    path('export/profile/', views.export_profile_csv, name="export_profile")
 ]

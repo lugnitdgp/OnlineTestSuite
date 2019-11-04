@@ -9,6 +9,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import logout
 from django.utils import timezone
 import os
+import csv
 
 def index(req):
     config = Config.objects.all().first()
@@ -148,3 +149,17 @@ def print_results(req):
         return HttpResponse('Done Saving Results.')
     else:
         return HttpResponse('You are not allowed to access the results.')
+
+
+def export_profile_csv(req):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="profiles.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['Name', 'Email address', 'Phone','RollNo'])
+
+    profiles = Profile.objects.all()
+    for profile in profiles:
+        writer.writerow([profile.full_name, profile.user.email, profile.phone, profile.rollno])
+
+    return response
