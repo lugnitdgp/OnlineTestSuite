@@ -15,7 +15,7 @@ def index(req):
         curr_time = timezone.now()
         if curr_time < config.start_time and not req.user.is_staff:
             logout_user(req)
-            return HttpResponse('First round of auditions will go live at 9.00 PM on 3rd November 2019.')
+            return HttpResponse('Second wave of First round of auditions will go live at 9.00 PM on 4th November 2019.')
         if curr_time > config.end_time and not req.user.is_staff:
             logout_user(req)
             return HttpResponse('First round of GLUG auditions has finished. See you next year :)')
