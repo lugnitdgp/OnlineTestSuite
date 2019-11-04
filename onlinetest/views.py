@@ -121,7 +121,7 @@ def results(req):
     if req.user.is_staff:
         # allow access to only staff for now
         profiles = Profile.objects.filter(selected=True)
-        ctx = {'profiles': profiles}
+        ctx = {'profiles': profiles, 'count': len(profiles)}
         return render(req, 'onlinetest/results.html', ctx)
     else:
         return HttpResponse('You are not allowed to access the results now.')
