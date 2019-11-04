@@ -74,6 +74,22 @@
                 </script>
             {% endblock %}
 
+            <hr>
+            <details>
+                <summary>Page Viewed by</summary>
+                <p><strong>{{ viewers }}</strong></p>
+            </details>
+
+            <hr>
+            <div>
+                <h3>Reviewd(updated) By: </h3>
+                <ul>
+                    {% for u, t in ulogs.items %}
+                    <p><strong>{{ u }} </strong> - last at {{ t }}</p>
+                    {% endfor %}
+                </ul>
+            </div>
+
             <br/>
             <div style="margin-top: 5vh;">
                 <h2 style="text-align: center;font-size: 2rem;">Student Responses</h2><hr>

@@ -33,6 +33,7 @@ class Profile(models.Model):
     # for admin uses
     remarks = models.TextField(help_text="Write remarks after reviewing", blank=True, null=True)
     selected = models.BooleanField(default=False)
+    viewed_by = models.ManyToManyField(User, blank=True, related_name="views")
 
     def __str__(self):
         return self.full_name
