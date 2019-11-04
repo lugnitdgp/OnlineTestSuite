@@ -130,14 +130,14 @@ def results(req):
 
 def scrape_answers(full_name, user_id):
     answers = Answer.objects.filter(user=user_id)
-    f = open(os.path.join(os.environ['HOME'], 'results.txt'), 'w')
+    f = open(os.path.join(os.environ['HOME'], 'results.txt'), 'a')
     f.write('################################\n')
     f.write(full_name + "\n")
     f.write('---------------------------------\n')
 
     for answer in answers:
         f.write(answer.text)
-        f.write('\n')
+        f.write('\n\n')
 
 @login_required
 def print_results(req):
