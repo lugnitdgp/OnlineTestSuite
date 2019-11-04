@@ -1,0 +1,9 @@
+<h2>Results of First Round of Auditions</h2>
+
+<ul>
+{% for profile in profiles %}
+<li>{{ profile.full_name }} - {{ profile.rollno }}</li>
+{% endfor %}
+</ul>
+
+<p>Congratulations to all !</p>
