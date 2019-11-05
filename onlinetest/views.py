@@ -129,24 +129,23 @@ def results(req):
     else:
         return HttpResponse('You are not allowed to access the results.')
 
-
-def scrape_answers(full_name, user_id):
+def scrape_answers(full_name, rollno, user_id):
     answers = Answer.objects.filter(user=user_id)
     f = open(os.path.join(os.environ['HOME'], 'results.txt'), 'a')
-    f.write('################################\n')
-    f.write(full_name + "\n")
     f.write('---------------------------------\n')
-
-    for answer in answers:
-        f.write(answer.text)
+    f.write(full_name + " - " + rollno + "\n")
+    f.write('---------------------------------\n')
+    for i, answer in enumerate(answers):
+        f.write(str(i) + ". " + answer.text)
         f.write('\n\n')
+    f.close()
 
 @login_required
 def print_results(req):
     if req.user.is_staff:
         profiles = Profile.objects.filter(selected=True)
         for profile in profiles:
-            scrape_answers(profile.full_name, profile.user)
+            scrape_answers(profile.full_name, profile.rollno, profile.user)
         return HttpResponse('Done Saving Results.')
     else:
         return HttpResponse('You are not allowed to access the results.')
