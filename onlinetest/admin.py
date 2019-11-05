@@ -11,7 +11,8 @@ class ProfileAdmin(admin.ModelAdmin):
 
     fields = ['user', 'time_left', 'full_name',
               'phone', 'rollno', 'remarks', 'selected']
-    list_display = ['full_name','user','time_left','selected']
+    list_display = ['full_name', 'user', 'time_left',
+                    'selected', 'selected_for_task_round']
     search_fields = ['full_name']
     actions = ['increase_time_by_10']
 
