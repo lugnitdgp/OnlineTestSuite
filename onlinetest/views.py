@@ -119,11 +119,10 @@ def finish(req):
     ctx = { 'user': req.user }
     return render(req, 'onlinetest/finish.html', ctx)
 
-@login_required
 def results(req):
     config = Config.objects.all().first()
     curr_time = timezone.now()
-    if curr_time < config.result_release_time and not req.user.is_staff:
+    if curr_time < config.result_release_time:
         return HttpResponse('Results not yet released.')
     else:
         profiles = Profile.objects.filter(selected=True)
