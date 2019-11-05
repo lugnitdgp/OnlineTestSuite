@@ -121,14 +121,15 @@ def finish(req):
 
 @login_required
 def results(req):
-    if req.user.is_staff:
-        # allow access to only staff for now
+    config = Config.objects.all().first()
+    curr_time = timezone.now()
+    if curr_time < config.result_release_time and not req.user.is_staff:
+        return HttpResponse('Results not yet released.')
+    else:
         profiles = Profile.objects.filter(selected=True)
         profiles = profiles[:100]
         ctx = {'profiles': profiles, 'count': len(profiles)}
         return render(req, 'onlinetest/results.html', ctx)
-    else:
-        return HttpResponse('You are not allowed to access the results.')
 
 def scrape_answers(full_name, rollno, user_id):
     answers = Answer.objects.filter(user=user_id)

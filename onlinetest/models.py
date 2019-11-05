@@ -42,6 +42,7 @@ class Profile(models.Model):
 class Config(models.Model):
     start_time = models.DateTimeField(default=datetime.now)
     end_time = models.DateTimeField(default=datetime.now)
+    result_release_time = models.DateTimeField(default=datetime.now)
 
     def __str__(self):
         return "Project Wide Settings"
