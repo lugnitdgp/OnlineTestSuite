@@ -10,7 +10,7 @@ class ProfileAdmin(admin.ModelAdmin):
     change_form_template = "admin/custom_change_form.html"
 
     fields = ['user', 'time_left', 'full_name',
-              'phone', 'rollno', 'remarks', 'selected', 'selected_for_task_round']
+              'phone', 'rollno', 'remarks', 'selected', 'selected_for_task_round', 'priority']
     list_display = ['full_name', 'user', 'time_left',
                     'selected', 'selected_for_task_round']
     search_fields = ['full_name']
