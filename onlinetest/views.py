@@ -125,7 +125,7 @@ def results(req):
     if curr_time < config.result_release_time and (not req.user.is_staff):
         return HttpResponse('Results not yet released.')
     else:
-        profiles = Profile.objects.filter(selected=True)
+        profiles = Profile.objects.filter(selected=True).order_by('full_name')
         profiles = profiles[:config.results_list_count]
         ctx = {'profiles': profiles, 'count': len(profiles)}
         return render(req, 'onlinetest/results.html', ctx)
