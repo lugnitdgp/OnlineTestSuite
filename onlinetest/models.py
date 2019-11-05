@@ -36,7 +36,7 @@ class Profile(models.Model):
     selected = models.BooleanField(default=False)
     viewed_by = models.ManyToManyField(User, blank=True, related_name="views")
     selected_for_task_round = models.BooleanField(default=False)
-    priority = models.PositiveIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(10)], help_text="You can set priority from 0 to 10")
+    priority = models.PositiveIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(10)], help_text="You can set priority from 0 to 10. Max priority 10.")
 
     def __str__(self):
         return self.full_name
