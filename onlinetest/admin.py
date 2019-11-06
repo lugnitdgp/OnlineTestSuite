@@ -14,7 +14,7 @@ class ProfileAdmin(admin.ModelAdmin):
     list_display = ['full_name', 'user', 'time_left',
                     'selected', 'selected_for_task_round']
     search_fields = ['full_name']
-    actions = ['increase_time_by_10']
+    actions = ['increase_time_by_10', 'set_priority']
 
     def increase_time_by_10(self, req, queryset):
         for profile in queryset:
@@ -22,6 +22,13 @@ class ProfileAdmin(admin.ModelAdmin):
             profile.save()
     
     increase_time_by_10.short_description = "Increase time by 10 min"
+
+    def set_priority(self, req, queryset):
+        for profile in queryset:
+            profile.priority = 5
+            profile.save()
+
+    set_priority.short_description = "Set priority to 5"
 
     def get_dynamic_info(self, object_id):
         questions = Question.objects.all()
