@@ -1,5 +1,5 @@
 // variables
-var countdown = document.getElementById('countdown');
+var countdown = document.getElementById("countdown");
 var timer;
 var specs = {
     'radius': 40,
@@ -7,11 +7,11 @@ var specs = {
     'centerY': 40,
     'thickness': 7,
     'offset': -Math.PI / 2,
-    'color': '#20c997',
-    'bgColor': '#f8f9fa',
-    'idFont': 'small-caps 400 1rem Verdana',
-    'valueFont': 'bold 1.5rem Verdana',
-    'fontColor': '#20c997'
+    'color': '#FF8C00',
+    'bgColor': 'black',
+    'idFont': 'small-caps 400 1rem Molle',
+    'valueFont': 'bold 1.5rem Molle',
+    'fontColor': '#FF8C00',
 };
 var time = {
     'millisecond': 1000,
