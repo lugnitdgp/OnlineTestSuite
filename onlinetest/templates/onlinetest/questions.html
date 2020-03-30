@@ -2,6 +2,29 @@
 
 {% block content %}
 
+<style>
+    body {
+      background: url("https://cdn.hipwallpaper.com/i/30/82/NTHsq9.jpg") no-repeat;
+      background-size: cover;
+      /*
+      color:rgb(250, 239, 239);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-attachment: fixed;
+      background-color: black;
+      font-family: "Allerta Stencil", Sans-serif;*/
+    }
+    .nav-link {
+  font-size: 24px;
+
+}
+    .nav-cont{
+      border-color:transparent;
+      font:#ffbf00;
+      font-family: Courgette;
+    }
+
+</style>
 {% if messages %}
     {% for message in messages %}
     <p class="alert alert-primary">{{ message }}</p>
@@ -24,7 +47,7 @@
         <div class="container-fluid form-group">
           <label for="question-name" class="question-name">{{ forloop.counter }}. {{ question.title }}</label>
           {% if question.answer %}
-          <textarea rows="5" class="form-control" name="text" type="text" placeholder="Type your answer here">{{ question.answer }}</textarea>
+          <textarea rows="5" class="form-control" name="text" type="text" placeholder="Type your answer here" style="background-color: orange;">{{ question.answer }}</textarea>
           {% else %}
           <textarea rows="5" class="form-control" name="text" type="text" placeholder="Type your answer here"></textarea>
           {% endif %}
@@ -36,7 +59,7 @@
     </div>
     {% endfor %}
     <div class="text-center">
-        <a href="{{ '/finish/' }}" class="btn btn-large btn-success finish-btn">Finish</a>
+        <a href="{{ '/finish/' }}" class="btn btn-large btn-info finish-btn">Finish</a>
     </div>
 </div>
 
@@ -55,3 +78,8 @@
 </script>
 
 {% endblock %}
+
+
+
+
+

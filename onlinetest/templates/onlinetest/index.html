@@ -12,9 +12,10 @@
    </div>
 </div> -->
 {% load static %}
+
 <style>
     body {
-      background: url("{% static 'onlinetest/bg1.jpg' %}") no-repeat;
+      background: url("https://newevolutiondesigns.com/images/freebies/orange-wallpaper-24.jpg") no-repeat;
       color:rgb(250, 239, 239);
       background-repeat: no-repeat;
       background-size: 100% 100%;
@@ -23,32 +24,36 @@
       font-family: "Allerta Stencil", Sans-serif;
     }
     .navbar-brand{
-      color:white;
+      color:#ffbf00;
     }
     .navbar{
       /* background-color:transparent; */
-      color:white;
+      color:#ffbf00;
     }
     .nav-cont{
       border-color:transparent;
-      font:white;
+      font:#ffbf00;
     }
 }
     </style>
-<div class="glug">
-  <img src="{% static 'onlinetest/logo.png' %}" alt="glug" style="width:15vh;height:15vh;">
-  <h3>Total Time: 75 mins</h3>
+   
+
+  <div class="glug">
+  <img src="{% static 'onlinetest/logo.png' %}" alt="glug" style="width:16%;">
+ <br><br>
+  <h3><strong>Total Time: 75 mins</strong></h3>
   <br>
-  <h3> Window Time: 9 pm  to 3 am </h3>
+  <h3><strong> Window Time: 9 pm  to 3 am </strong></h3>
+  <br><br>
 </div>
 <div class="row">
   <div class="col-xs-1"></div>
   <div class="col-xs-10">
     <div class="button login-container">
-        <a href='{% url "social:begin" "google-oauth2" %}' style="text-transform:none;color:white;">
+        <a href='{% url "social:begin" "google-oauth2" %}' style="text-transform:none;color:#ffbf00;">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Login With Google
+          <strong>Login With Google</strong>
         </div>
         <div class="panel-body">
               <div class="left">
@@ -60,5 +65,6 @@
     </div>
   </div>
 </div>
+
 
 {% endblock %}
