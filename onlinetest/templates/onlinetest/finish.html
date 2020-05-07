@@ -6,17 +6,70 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   {% load static %}
         <link rel="stylesheet" type="text/css" media="screen" href="{% static 'onlinetest/css/particle.css' %}" />
-        <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Molle:400i">
+        
         <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Courgette">
-        <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Bangers">
-        <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Marck+Script">
-        <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Playball">
+        <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet"> 
+        
        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
+<style>
+  body{
+      background-image: url("{% static 'onlinetest/wallpaper.jpg' %}");
+  }
+  .x {
+  display: inline-block;
+  padding: .3em;
+  font-family: 'Rye';
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  user-select: none;
+  transform: translate(-50%,-50%);
+  color: white;
+  
+  font-size: 2vw;
+}
+.y {
+  /*display: inline-block;*/
+  padding: .3em;
+  font-family: 'Megrim', cursive;
+  position: absolute;
+  top: 55%;
+  left: 50.5%;
+  user-select: none;
+  transform: translate(-50%,-50%);
+  color: white;
+  font-family: "Rye";
+  font-size: 2vw;
+}
+
+.navbar {
+  border-bottom: blue 1px solid;
+  background-color: #212121;
+  color:blue;
+  font-weight: bold;
+  font-family: "Permanent Marker";
+  text-align: center;
+  /* padding-right: 8vw !important; */
+}
+
+.nav-link {
+  font-size: 1vw;
+  font-weight: bold;
+  margin-right: 0px;
+  color:blue !important;
+}
+
+.nav-item {
+  padding-right: 8px;
+
+}
+  </style>
 <body>
+
   <nav class="navbar navbar-expand-sm navbar-light">
       <div class="container nav-cont">
-        <h3><strong>GLUG AUDITIONS 2020</strong></h3>
+        <h5><strong>GLUG AUDITIONS 2020</strong></h5>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -42,7 +95,7 @@
         <br><br><br><br></p>
         
         <p class="y" style="text-align: center;">
-        We will get back to you soon ! Have a good day :)
+        We will get back to you soon!Have a good day :)
         <br>
         May the source be with you!
       </p>
@@ -57,8 +110,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script>
-s<script src="{% static 'onlinetest/js/xxx.js' %}"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script> -->
+<!-- <script src="{% static 'onlinetest/js/xxx.js' %}"></script> -->
 
 
 </body>
