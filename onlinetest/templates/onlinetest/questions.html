@@ -1,18 +1,11 @@
 {% extends 'onlinetest/base.html' %}
-
+{% load static %}
 {% block content %}
 
 <style>
     body {
-      background: url("https://cdn.hipwallpaper.com/i/30/82/NTHsq9.jpg") no-repeat;
+      background: url("{% static 'onlinetest/codings.jpg' %}") center center no-repeat;
       background-size: cover;
-      /*
-      color:rgb(250, 239, 239);
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-      background-attachment: fixed;
-      background-color: black;
-      font-family: "Allerta Stencil", Sans-serif;*/
     }
     .nav-link {
   font-size: 24px;
@@ -20,8 +13,8 @@
 }
     .nav-cont{
       border-color:transparent;
-      font:#ffbf00;
-      font-family: Courgette;
+      font:black;
+      font-family: Roboto;
     }
 
 </style>
