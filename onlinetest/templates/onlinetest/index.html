@@ -1,70 +1,140 @@
 {% extends 'onlinetest/base.html' %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'onlinetest/css/main.css' %}">
+ 
+
 
 {% block content %}
-<!-- <div class="text-center container">
-    <div style="width: 20%; margin: 10%;" class="btn white darken-4 col s10 m4">
-        <a href='{% url "social:begin" "google-oauth2" %}' style="text-transform:none">
-            <div class="left">
-                <img width="20px" alt="Google &quot;G&quot; Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"/>
-            </div>
-            Login with Google
-        </a>
-   </div>
-</div> -->
-{% load static %}
 
 <style>
     body {
-      background: url("https://newevolutiondesigns.com/images/freebies/orange-wallpaper-24.jpg") no-repeat;
-      color:rgb(250, 239, 239);
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-      background-attachment: fixed;
-      background-color: black;
-      font-family: "Allerta Stencil", Sans-serif;
-    }
-    .navbar-brand{
-      color:#ffbf00;
-    }
-    .navbar{
-      /* background-color:transparent; */
-      color:#ffbf00;
-    }
-    .nav-cont{
-      border-color:transparent;
-      font:#ffbf00;
-    }
+        overflow: hidden;
+  background-image: url("{% static 'onlinetest/keyboard.jpg' %}");
+  align-items: center;
 }
-    </style>
+
+.button {
+  -webkit-tap-highlight-color: red;
+  appearance: none;
+  border-radius: 100px;
+  border: 2px solid #7FFF00;
+  
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  color: white;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 20px;
+  outline: none;
+  overflow: hidden;
+  padding: .5em .5em;
+  position: relative;
+  width: 300px;
+  display: block;
+  margin-left: 43vw;
+}
+.button--white {
+  color: white;
+}
+.pattern {
+  background: black;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.inner {
+  height: 100px;
+  width: 400px;
+}
+.text {
+  position: relative;
+  opacity: .7;
+}
+.target {
+  transform: translate(var(--x), var(--y));
+}
+.button:active .target {
+  opacity: 0.7;
+  transition: opacity 100ms;
+}
+
+
+.ml2 {
+  font-family: Permanent Marker;
+  font-weight: 900;
+  font-size: 3.5em;
+  text-align: center;
+
+}
+
+.ml2 .letter {
+  display: inline-block;
+  line-height: 1em;
+  color: white;
+  text-align: center;
+}
+
+
+span{
+  display: table;
+  margin: 0 auto;
+}
+.responsive {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+h3{
+  
+  text-align:center;
+  color: white;
+  font-family: Roboto;
+}
+</style>
    
 
-  <div class="glug">
-  <img src="{% static 'onlinetest/logo.png' %}" alt="glug" style="width:16%;">
- <br><br>
-  <h3><strong>Total Time: 75 mins</strong></h3>
-  <br>
-  <h3><strong> Window Time: 9 pm  to 3 am </strong></h3>
-  <br><br>
-</div>
+   <div id="bkg"> 
+<span class="ml2" style="font-size:3vw;">Welcome to GNU Linux Users Group Auditions</span>
+<br>
+<br>
+
+<img src="{% static 'onlinetest/logo.png' %}" alt="logo" class="responsive" width="100" height="400">
+<br>
+<br>
+<h3 style="font-size:2vw;">Total time: 75 minutes
+<br>
+<br>
+
+Windows Time: 9pm to 3am</h3>
+<br><br><br><br><br>
 <div class="row">
   <div class="col-xs-1"></div>
   <div class="col-xs-10">
-    <div class="button login-container">
-        <a href='{% url "social:begin" "google-oauth2" %}' style="text-transform:none;color:#ffbf00;">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <strong>Login With Google</strong>
-        </div>
-        <div class="panel-body">
-              <div class="left">
-                  <img width="20px" alt="Google &quot;G&quot; Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"/>
-              </div>
-          </a>
-        </div>
-      </div>
-    </div>
+<button class="button">
+  <div class="pattern">
+    <div class="target inner bg1"></div>
   </div>
+  <div class="text">Login with Google
+  <br>
+    <img width="20px" alt="Google &quot;G&quot; Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"/>
+  </div>
+</button>
+<button class="button">
+  <div class="pattern">
+    <div class="target inner bg2"></div>
+  </div>
+  <div class="text">Login with Facebook
+  <br>
+    <img width="20px" alt="Google &quot;G&quot; Logo" src="https://www.freepngimg.com/thumb/facebook/65284-icons-wallpaper-desktop-photos-computer-facebook-icon-thumb.png"/>
+  </div>
+</button>
 </div>
-
+</div>
+</div>
 
 {% endblock %}
