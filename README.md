@@ -1,6 +1,6 @@
 # OnlineTestSuite
 
-![alt text](.github/onlinegit.png)
+![alt text](screenshot.png)
 
 Use a virtual envionment for installing this, 
 i.e `venv` or `pipenv`.
