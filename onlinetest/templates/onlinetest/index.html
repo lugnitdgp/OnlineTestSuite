@@ -9,18 +9,20 @@
 <style>
     body {
         overflow: hidden;
-  background-image: url("{% static 'onlinetest/keyboard.jpg' %}");
-  align-items: center;
+  background-image: url("{% static 'onlinetest/blue.jpg' %}");
+  background-size: cover;
+
+  /*align-items: center;*/
 }
 
 .button {
-  -webkit-tap-highlight-color: red;
+ 
   appearance: none;
   border-radius: 100px;
-  border: 2px solid #7FFF00;
+  border: 4px solid #00009a;
   
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  color: white;
+  color: black;
   cursor: pointer;
   font-size: 1em;
   margin-top: 20px;
@@ -28,7 +30,7 @@
   overflow: hidden;
   padding: .5em .5em;
   position: relative;
-  width: 300px;
+  width: 18vw;
   display: block;
   margin-left: 43vw;
 }
@@ -36,7 +38,7 @@
   color: white;
 }
 .pattern {
-  background: black;
+  background: white;
   height: 100%;
   left: 0;
   position: absolute;
@@ -93,7 +95,7 @@ h3{
   
   text-align:center;
   color: white;
-  font-family: Roboto;
+  font-family: Rye;
 }
 </style>
    
@@ -119,7 +121,7 @@ Windows Time: 9pm to 3am</h3>
   <div class="pattern">
     <div class="target inner bg1"></div>
   </div>
-  <div class="text">Login with Google
+  <div class="text"><strong>Login with Google</strong>
   <br>
     <img width="20px" alt="Google &quot;G&quot; Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"/>
   </div>
@@ -128,7 +130,7 @@ Windows Time: 9pm to 3am</h3>
   <div class="pattern">
     <div class="target inner bg2"></div>
   </div>
-  <div class="text">Login with Facebook
+  <div class="text"><strong>Login with Facebook</strong>
   <br>
     <img width="20px" alt="Google &quot;G&quot; Logo" src="https://www.freepngimg.com/thumb/facebook/65284-icons-wallpaper-desktop-photos-computer-facebook-icon-thumb.png"/>
   </div>
