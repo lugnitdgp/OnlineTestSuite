@@ -1,21 +1,26 @@
 {% extends 'onlinetest/base.html' %}
 {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'onlinetest/css/main.css' %}">
 {% block content %}
 
 <style>
     body {
-      background: url("{% static 'onlinetest/codings.jpg' %}") center center no-repeat;
+      background: url("{% static 'onlinetest/blue.jpg' %}");
       background-size: cover;
     }
-    .nav-link {
-  font-size: 24px;
-
-}
+  
     .nav-cont{
       border-color:transparent;
       font:black;
-      font-family: Roboto;
+      font-family: Rye;
+      color: blue;
     }
+    .nav-cont h3{
+      font-family: Rye;
+      
+    }
+ 
+
 
 </style>
 {% if messages %}
@@ -40,7 +45,7 @@
         <div class="container-fluid form-group">
           <label for="question-name" class="question-name">{{ forloop.counter }}. {{ question.title }}</label>
           {% if question.answer %}
-          <textarea rows="5" class="form-control" name="text" type="text" placeholder="Type your answer here" style="background-color: orange;">{{ question.answer }}</textarea>
+          <textarea rows="5" class="form-control" name="text" type="text" placeholder="Type your answer here" style="background-color: blue;">{{ question.answer }}</textarea>
           {% else %}
           <textarea rows="5" class="form-control" name="text" type="text" placeholder="Type your answer here"></textarea>
           {% endif %}
