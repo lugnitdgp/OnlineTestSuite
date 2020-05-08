@@ -1,6 +1,6 @@
 # OnlineTestSuite
 
-![alt text](screenshot.png)
+![alt text](rewind.png)
 
 Use a virtual envionment for installing this, 
 i.e `venv` or `pipenv`.
