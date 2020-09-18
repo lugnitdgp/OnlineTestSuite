@@ -2,59 +2,51 @@
 
 {% block content %}
 {% load static %}
-<style>
-        body {
-          background: url("{% static 'onlinetest/bg1.jpg' %}") no-repeat;
-          color:rgb(250, 239, 239);
-          background-repeat: no-repeat;
-          background-size: 100% 100%;
-          background-attachment: fixed;
-          background-color: black;
-          font-family: "Allerta Stencil", Sans-serif;
-        }
-       
-        .navbar{
-          /* background-color:transparent; */
-          color:white;
-        }
-        .nav-cont{
-          border-color:transparent;
-        }
-        .nav-link{
-            color:white;
-        }
-</style>
-<div style="margin-top: 5%;" class="container">
-    <div style="margin: 10% auto 5% auto; width: 60%;">
-        <h1 class="text-center">Rules</h1>
-        <br>
-        <p>1. You will have <strong>1 Hour</strong> to complete the test. Test will automatically terminate after that.</p>
-        <p>2. Questions are subjective. You can submit an answer multiple times.</p>
-        <p>3. The timer will start on clicking the <strong>Submit and Start Test</strong> button.</p>
-    </div>
-    <div style="margin: 5% auto; width: 50%;">
-        {% if noprofile is True %}
-        <form method="POST" action="{{ '/rules/' }}">
-            {% csrf_token %}
-            <div class="form-group">
-                <input type="text" name="full_name" class="form-control" placeholder="Full Name" required>
-            </div>
-            <div class="form-group">
-                <input type="text" name="phone" class="form-control" placeholder="Contact Number" required>
-            </div>
-            <div class="form-group">
-                <input type="text" name="rollno" class="form-control" placeholder="College Roll Number" required>
-            </div>
-            <div style="margin:5% auto;" class="text-center">
-                <button type="submit" class="btn btn-success btn-large">Submit & Start Test</button>
-            </div>
-        </form>
-        {% else %}
-        <div style="margin:5% auto;" class="text-center">
-            <a href="{{ '/questions/' }}" role="button" class="btn btn-success btn-large">Go to Test</a>
-        </div>
-        {% endif %}
+<link rel="stylesheet" type="text/css" href="{% static 'onlinetest/css/rules.css' %}">
 
+<div class="container">
+   <div class="myCard">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="myss">
+                    <div class="box"><header>Rules</header>
+                        <br>
+                      <ul>
+                        <li>You will have 1 Hour to complete the test. Test will automatically terminate after that. </li>
+                        <br>
+                        <li>Questions are subjective. You can submit an answer multiple times.</li>
+                        <br>
+                        <li>The timer will start on clicking the Submit and Start Test button.</li>    
+                      </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mys">
+                  <form class="myForm text-center needs-validation" method="POST" action="{{ '/rules/' }}">
+                    {% csrf_token %}
+                    <header>Fill the Details !</header>
+                          <div class="form-group">
+                                <i class="fas fa-user"></i>
+                                <input class="myInput" name="full_name" type="text" placeholder="Enter Full Name" id="username" required>
+                              <div class="invalid-feedback">Please fill out this field.</div>
+                          </div>
+                          <div class="form-group">
+                                <i class="fas fa-phone-alt"></i>
+                                <input class="myInput" name="phone" placeholder="Enter Contact Number" type="text" id="email" required>
+                                <div class="invalid-feedback">Please fill out this field.</div>
+                            </div>
+                            <div class="form-group">
+                                <i class="fas fa-cube"></i>
+                                <input class="myInput" name="rollno" type="password" id="password" placeholder="Enter Roll Number" required>
+                                <div class="invalid-feedback">Please fill out this field.</div>
+                            </div>
+                            <br><br>
+                            <input type="submit" class="butt" value="Submit & Start Test">
+                  </form>
+                </div>
+            </div>
+          </div>
     </div>
 </div>
 {% endblock %}

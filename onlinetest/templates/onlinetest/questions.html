@@ -1,46 +1,54 @@
 {% extends 'onlinetest/base.html' %}
 
+
 {% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'onlinetest/css/questions.css' %}">
+
 
 {% if messages %}
     {% for message in messages %}
     <p class="alert alert-primary">{{ message }}</p>
     {% endfor %}
 {% endif %}
-
-<div id="countdown" calss="container-fluid">
-    <p>Time Left</p>
-    <div class="canvas-container">
-        <canvas id="minutes"></canvas>
-        <canvas id="seconds"></canvas>
-    </div>
+<div class="sticky" id="countdown">
+  <p>Time Left</p>
+  <div class="canvas-container">
+      <canvas id="minutes"></canvas>
+      <canvas id="seconds"></canvas>
+  </div>
 </div>
+</div>
+<br><br><br><br><br><br>
+<div class="container">
+  {% for question in questions %}
+    <div class="row" id="{{ question.id }}">
+      <div class="card">
 
-<div class="container question">
-    {% for question in questions %}
-    <div id="{{ question.id }}" class="container-fluid question-box" id="sub-question-box">
-    <form method="POST" action="{{ '/answers' }}/{{ question.id }}">
-        {% csrf_token %}
-        <div class="container-fluid form-group">
-          <label for="question-name" class="question-name">{{ forloop.counter }}. {{ question.title }}</label>
-          {% if question.answer %}
-          <textarea rows="5" class="form-control" name="text" type="text" placeholder="Type your answer here">{{ question.answer }}</textarea>
-          {% else %}
-          <textarea rows="5" class="form-control" name="text" type="text" placeholder="Type your answer here"></textarea>
-          {% endif %}
-          <br>
-          <button type="submit" class="btn btn-md btn-primary questions-button ">Save</button>
+        <h2 class="card-heading">{{ forloop.counter }}. {{ question.title }}</h2>
+        <div class="card-body">
+          <form method="POST" action="{{ '/answers' }}/{{ question.id }}">
+            {% csrf_token %}
+            {% if question.answer %}
+            <textarea rows="6" class="form-control" name="text" placeholder="Type your answer here ...">{{ question.answer }}</textarea>
+            {% else %}
+            <textarea rows="6" class="form-control" name="text" placeholder="Type your answer here ..."></textarea>
+            {% endif %}
+            <button type="submit" class="btn btn-dark submit-btn">Submit Answer</button>
+          </form>
         </div>
-        <hr>
-    </form>
+      </div>
     </div>
-    {% endfor %}
-    <div class="text-center">
-        <a href="{{ '/finish/' }}" class="btn btn-large btn-success finish-btn">Finish</a>
+    <br>
+  {% endfor %}
+  <div class="text-center">
+        <a href="{{ '/finish/' }}" class="btn btn-dark submit-btn">Finish</a>
     </div>
-</div>
+    <br>
+  </div>
 
-{% load static %}
+
+
 <script src="{% static 'onlinetest/js/main.js' %}"></script>
 <script src="{% static 'onlinetest/js/timer.js' %}"></script>
 

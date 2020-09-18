@@ -5,7 +5,7 @@
 {% load static %}
 <style>
     body {
-      background: url("{% static 'onlinetest/bg1.jpg' %}") no-repeat;
+      background: url("https://linuxconfig.org/images/Focal-Fossa_WP_1920x1080_1.png") no-repeat;
       color:rgb(250, 239, 239);
       background-repeat: no-repeat;
       background-size: 100% 100%;
@@ -13,25 +13,15 @@
       background-color: black;
       font-family: "Allerta Stencil", Sans-serif;
     }
-    .navbar-brand{
-      color:white;
-    }
-    .navbar{
-      /* background-color:transparent; */
-      color:white;
-    }
-    .nav-cont{
-      border-color:transparent;
-      font:white;
-    }
+    
     </style>
 
 <div style="margin: 10% 10% 20% 10%;" class="text-center">
-    <p style="font-size: 4rem; font-family: 'Mukta', sans-serif;">
+    <p style="font-size: 3rem; font-family: 'Share', sans-serif;">
         Hey {{ user }}, Thanks for taking the test.</p>
         <br><br>
-    <p class="last">We will get back to you soon ! Have a good day :)</p>
+    <p style="font-size: 1.7rem; font-family: 'Share', sans-serif;">We will get back to you soon ! Have a good day :)</p>
     <br><br>
-    <p class="last">May the source be with you!</p>
+    <p style="font-size: 1.7rem; font-family: 'Share', sans-serif;">May the source be with you!</p>
 </div>
 {% endblock %}

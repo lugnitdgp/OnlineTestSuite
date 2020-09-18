@@ -1,129 +1,16 @@
-body {
-  background: url("../bg1.jpg");
-  background-repeat: cover;
-  color:white;
-}
-.glug{
-  position:absolute;
-  margin-top:10vh;
-  margin-left:20vw;
-  width:60vw;
-  display:inline-block;
-  text-align:center;
-
-
-}
-.panel{
-  padding-top:5px;
-  padding-bottom:5px;
-}
 .navbar {
-  border-bottom: rgb(26, 24, 24) 1px solid;
-  background-color:rgba(33, 56, 50, 0.603);
-  color:white;
-  font-family: "Allerta Stencil", Sans-serif;
-  /* padding-right: 8vw !important; */
+  background-color:rgba(60,40,60,0.6);
+  backdrop-filter:blur(4px);
+  opacity: 0.7;
+  
+}
+.nav-link{
+    font-size: 19px;
+    padding: 0px 5px;
+    font-family: Share;
 }
 
-.nav-link {
-  font-size: 17px;
-  font-weight: bold;
-  margin-right: 13px;
-  color:#20e6aa !important;
+.navbar-brand{
+  font-family: Share;
 }
 
-.nav-item {
-  padding-right: 8px;
-  text-decoration-color: #fff; }
-
-.question h2 {
-    font-family: 'Mukta', sans-serif;
-    font-size: 4 rem;
-}
-
-.finish-btn {
-    width: 35% !important;
-    background-color: rgba(64, 185, 155, 0.9) !important;
-    margin-bottom: 5vh;
-}
-
-.question-box {
-  width: 85% !important;
-  padding-bottom: 10%;
-  color:white;
-  margin: auto;
-}
-
-.question {
-  border: 1px solid #fff;
-  /* padding: 20px 30px; */
-  padding-top: 3vh;
-  margin-top: 15vh;
-  margin-bottom: 10vh;
-  -webkit-box-shadow: -2px 7px 20px 11px #20c997;
-  -moz-box-shadow: -2px 7px 20px 11px  #20c997;
-  box-shadow: -2px 7px 20px 11px #20c997;
-}
-
-.login-container {
-  position: absolute;
-  border: 1px solid rgba(64, 185, 92, 0.3);
-  margin-left:37.5vw;
-  width:25%;
-  display:inline-block;
-  margin-top:60vh;
-  text-align:center;
-  -webkit-box-shadow: -2px 7px 20px 11px rgba(46, 184, 154, 0.3);
-  -moz-box-shadow: -2px 7px 20px 11px rgba(64, 185, 154, 0.3);
-  box-shadow: -2px 7px 20px 11px rgba(64, 185, 154, 0.3);
-}
-
-.questions-button {
-  width: 30% ;
-  margin-left: 35%;
-  /* margin-right: 30%; */
-  background-color: #0f332d !important;
-
-}
-
-.question-name {
-  overflow: auto;
-  background-color: #06221f9b;
-}
-
-
-#countdown {
-    /* for debugging */
-    /* border: 2px solid red; */
-    position: absolute;
-    z-index:100;
-    background:#031312;
-    top:0;
-    right:0;
-    opacity: 1;
-    padding: 0.2rem 0.4rem 0.2rem 0.4rem;
-    margin-top: 7vh;
-    box-shadow: -7px 10px 18px -8px rgba(64, 185, 154, 0.5);
-    border-radius: 5%;
-    color: aquamarine;
-}
-
-#countdown p {
-  text-align: center;
-  margin: 0;
-  font-size: 1rem;
-}
-#countdown .canvas-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  max-width: 440px;
-  margin: 0 auto;
-}
-
- @media (max-width:500px){
-  #countdown .canvas-container { max-width: 220px; }
-  #countdown canvas:nth-child(-n+2) { margin-bottom: 10px; }
- 
-}

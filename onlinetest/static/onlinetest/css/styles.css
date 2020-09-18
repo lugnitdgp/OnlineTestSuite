@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,600;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
+body {
+  background-image: url("../background.jpg");
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+  color: #ffffff;
+}
+.navbar{
+  visibility: hidden;
+}
+.container-fluid {
+  padding: 5%;
+  position: relative;
+}
+
+.type {
+  display: flex;
+  /* margin-left: auto;
+  margin-right: auto; */
+  width: 65%;
+  font-family: "Raleway", sans-serif;
+}
+
+.type h1 {
+  font-weight: 600;
+  font-size: 4rem;
+}
+
+/* Cursor */
+.txt {
+  padding-right: 5px;
+  border-right: 1px solid white;
+}
+
+/* CARD */
+
+.card {
+  width: 100%;
+  height: auto;
+  background-color: rgba(60, 40, 60, 0.6);
+  backdrop-filter: blur(4px);
+  border-radius: 5px;
+  box-shadow: 3px 3px 6px #222;
+  text-align: center;
+  margin-top: 50px;
+  padding: 15px;
+  font-family: "Fira Sans", sans-serif;
+}
+
+#glug-logo {
+  width: 15vh;
+  height: auto;
+  margin: 2%;
+}
+
+.info {
+  padding: 2% 3%;
+}
+
+/* Login Button */
+
+.panel {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.login-container {
+  position: relative;
+  margin: 2% auto;
+  border: 1px solid rgba(92, 121, 98, 0.3);
+  width: 35%;
+  display: inline-block;
+  text-align: center;
+}
+
+.google-icon img {
+  width: 20px;
+  height: auto;
+}
+
+@media (max-width: 1000px) {
+  .card {
+    position: absolute;
+    margin: 0;
+    top: 270px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
+}
+
+@media (max-width: 800px) {
+  .type h1 {
+    font-size: 3.5rem;
+  }
+
+  body {
+    background-image: url("https://linuxconfig.org/images/Focal-Fossa_WP_1920x1080_1.png");
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .login-container {
+    width: 70%;
+  }
+}

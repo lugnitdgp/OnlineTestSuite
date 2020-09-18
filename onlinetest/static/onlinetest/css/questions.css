@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Share:wght@700&display=swap');
+
+body{
+/*   background-image: url("https://cdn.pling.com/img/c/d/7/9/d28dfc895cd8fbc39da06238b5bedf6c2d1e.jpg"); */
+  background-image: url("https://linuxconfig.org/images/Focal-Fossa_WP_1920x1080_1.png");
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  font-weight: Share;
+}
+
+
+
+.row {
+  margin: 10px 0;
+}
+
+.card-heading{
+  font-family: Share;
+  font-size:24px;
+  text-align:center;
+  color: white;
+  margin: 7px;
+  margin-bottom: 0;
+}
+.card{
+  width: 100%;
+  height:auto;
+  background-color:rgba(60,40,60,0.6);
+  backdrop-filter:blur(4px);
+  border-radius: 3px;
+  box-shadow: 3px 3px 6px #222;
+}
+
+
+.card-body {
+  padding: 10px;
+  font-family: Share;
+}
+
+/* Set the font size for the textarea */
+.form-control {
+  font-size: 16px;
+}
+
+textarea {
+  font-family: Share;
+/*   resize: none; */
+  opacity:0.7;
+}
+
+.submit-btn {
+  margin-top: 10px;
+  background-color: teal;
+}
+
+#countdown{
+  background: rgba(0,0,0,0.5);
+  float: right;
+  /* top: 30px; */
+  right: 10px;
+  padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+  margin-top: 2vh;
+  margin-right: 10px;
+  border-radius: 10%;
+  font-family: Share;
+}
+
+#countdown p {
+color: white;
+text-align: center;
+margin: 0;
+font-size: 1.3rem;
+font-family: Share;
+}
+
+#countdown .canvas-container {
+font-family: Share;
+}
+
+@media (max-width:500px){
+  #countdown .canvas-container { max-width: 220px; }
+  #countdown canvas:nth-child(-n+2) { margin-bottom: 10px; }
+  #countdown{
+  padding: 0.08rem 0.2rem 0.08rem 0.2rem;
+  }
+}
+@media (min-width:1600px){
+div.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10px;
+}
+}
+
