@@ -66,6 +66,8 @@ def answers(req, qid):
                 answer = Answer(question=question, user=user, text=req.POST['text'])
                 answer.save()
                 messages.info(req, 'Answer submitted successfully for question {}.'.format(qid))
+            if question == Question.objects.all().last():
+                return redirect('/questions/#q{}'.format(qid))
             return redirect('/questions/#q{}'.format(qid+1))
         else:
             messages.info(req, 'Please supply a valid answer.')
