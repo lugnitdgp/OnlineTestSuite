@@ -100,7 +100,7 @@ font-family: Share;
   padding: 0.08rem 0.2rem 0.08rem 0.2rem;
   }
   .msg-btn{
-    margin-top: 8px;
+    margin-top: 25px;
   }
 }
 @media (min-width:1600px){
@@ -110,13 +110,6 @@ div.sticky {
   top: 10px;
 }
 }
-.alert{
-  width: 500px;
-}
-.a{
-  display: inline;
-}
-
 
 
 

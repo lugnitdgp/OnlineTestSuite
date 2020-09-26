@@ -61,11 +61,11 @@ def answers(req, qid):
                 answer = Answer.objects.filter(question=question, user=user).first()
                 answer.text = req.POST['text']
                 answer.save()
-                messages.info(req, 'Your answer has been updated for question {}'.format(qid))
+                messages.info(req, 'Answer updated successfuly {}'.format(qid))
             else:
                 answer = Answer(question=question, user=user, text=req.POST['text'])
                 answer.save()
-                messages.info(req, 'Answer submitted successfully for question {}'.format(qid))
+                messages.info(req, 'Answer submitted successfully {}'.format(qid))
             if question == Question.objects.all().last():
                 return redirect('/questions/#q{}'.format(qid))
             return redirect('/questions/#q{}'.format(qid))
