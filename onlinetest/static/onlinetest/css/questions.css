@@ -55,12 +55,18 @@ textarea {
   margin-top: 10px;
   background-color: teal;
 }
+.msg-btn{
+  margin-top: 25px;
+  background-color: #CCFFE5;
+  color: black;
+}
 
 .finish-btn {
   background-color: teal;
   color: #ffffff;
-  font-size: 22px;
+  font-size: 20px;
   font-family: Share;
+  width: 200px; 
 }
 
 #countdown{
@@ -93,6 +99,9 @@ font-family: Share;
   #countdown{
   padding: 0.08rem 0.2rem 0.08rem 0.2rem;
   }
+  .msg-btn{
+    margin-top: 8px;
+  }
 }
 @media (min-width:1600px){
 div.sticky {
@@ -101,4 +110,13 @@ div.sticky {
   top: 10px;
 }
 }
+.alert{
+  width: 500px;
+}
+.a{
+  display: inline;
+}
+
+
+
 

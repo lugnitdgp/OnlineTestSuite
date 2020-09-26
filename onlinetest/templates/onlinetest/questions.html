@@ -6,11 +6,11 @@
 <link rel="stylesheet" type="text/css" href="{% static 'onlinetest/css/questions.css' %}">
 
 
-{% if messages %}
+<!-- {% if messages %}
     {% for message in messages %}
     <p class="alert alert-primary">{{ message }}</p>
     {% endfor %}
-{% endif %}
+{% endif %} -->
 <div class="sticky" id="countdown">
   <p>Time Left</p>
   <div class="canvas-container">
@@ -34,8 +34,19 @@
             {% else %}
             <textarea rows="6" class="form-control" name="text" placeholder="Type your answer here ..."></textarea>
             {% endif %}
-            <button type="submit" class="btn btn-dark submit-btn">Submit Answer</button>
+            <span class="a">
+            <button type="submit" class="btn btn-dark submit-btn">Submit Answer</button></span>
+          <span class="a">
+            {% if messages %}
+                {% for msg in messages %}
+                    {% if question.id|stringformat:"i" == msg.message|slice:"-1:"|first %}
+                         <p class="btn btn-light msg-btn">{{ msg }}</p>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+          </span>  
           </form>
+          
         </div>
       </div>
     </div>

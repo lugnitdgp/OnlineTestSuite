@@ -123,7 +123,7 @@ body {
   background: #1669f2;
 }
 
-@media (max-width: 1000px) {
+/* @media (max-width: 1000px) {
   .card {
     position: absolute;
     margin: 0;
@@ -132,9 +132,17 @@ body {
     margin-right: auto;
     width: 90%;
   }
-}
+} */
 
-@media (max-width: 1200px) {
+@media (max-width: 1600px) {
+  .card {
+    position: absolute;
+    margin: 0;
+    top: 270px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
   .type h1 {
     font-size: 3.5rem;
   }
