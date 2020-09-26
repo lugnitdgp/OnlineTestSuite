@@ -94,7 +94,7 @@ body {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1200px) {
   .type h1 {
     font-size: 3.5rem;
   }
