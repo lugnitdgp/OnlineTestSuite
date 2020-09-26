@@ -56,6 +56,13 @@ textarea {
   background-color: teal;
 }
 
+.finish-btn {
+  background-color: teal;
+  color: #ffffff;
+  font-size: 22px;
+  font-family: Share;
+}
+
 #countdown{
   background: rgba(0,0,0,0.5);
   float: right;
