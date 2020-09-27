@@ -46,7 +46,8 @@ def questions(req):
             question.answer = None
 
     time_left = profile.time_left
-    ctx = { 'questions': questions, 'user': req.user , 'time_left': time_left}
+    name = profile.full_name
+    ctx = { 'questions': questions, 'user': name , 'time_left': time_left}
     return render(req, 'onlinetest/questions.html', ctx)
 
 @login_required
@@ -118,7 +119,9 @@ def UpdateTime(req):
 
 @login_required
 def finish(req):
-    ctx = { 'user': req.user }
+    profile = Profile.objects.get(user=req.user)
+    name = profile.full_name
+    ctx = { 'user': name }
     return render(req, 'onlinetest/finish.html', ctx)
 
 def results(req):

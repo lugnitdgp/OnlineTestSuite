@@ -1,9 +1,15 @@
-<h2>Results of Second Round of Auditions</h2>
 
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'onlinetest/css/results.css' %}">
+<div class="b">
+<h1>Results of Second Round of Auditions</h1>
+<h1>Congratulations to all !</h1>
 <ul>
 {% for profile in profiles %}
 <li>{{ profile.full_name }} - {{ profile.rollno }}</li>
 {% endfor %}
 </ul>
 <p>Count : {{ count }} </p>
-<p>Congratulations to all !</p>
+</div>
+

@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Share:wght@700&display=swap');
+
+
+body{
+    background-image: url("https://linuxconfig.org/images/Focal-Fossa_WP_1920x1080_1.png");
+    overflow: hidden;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  font-family: Share;
+  color: white;
+}
+
+
+.b{
+  margin-left: 5%;
+  padding-top: 2%;
+}
+li, p{
+    font-size: 20px;
+}
