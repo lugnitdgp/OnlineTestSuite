@@ -62,7 +62,7 @@ def answers(req, qid):
                 answer = Answer.objects.filter(question=question, user=user).first()
                 answer.text = req.POST['text']
                 answer.save()
-                messages.info(req, 'Answer updated successfuly {}'.format(qid))
+                messages.info(req, 'Answer updated successfully {}'.format(qid))
             else:
                 answer = Answer(question=question, user=user, text=req.POST['text'])
                 answer.save()
