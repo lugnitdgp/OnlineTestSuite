@@ -8,7 +8,7 @@ body{
   background-size: cover;
   width: 100%;
   height: 100%;
-  font-weight: Share;
+  font-weight: "Slackey","cursive";
 }
 
 
@@ -18,7 +18,7 @@ body{
 }
 
 .card-heading{
-  font-family: Share;
+  font-family: "Slackey","cursive";
   font-size:24px;
   text-align:center;
   color: white;
@@ -37,7 +37,7 @@ body{
 
 .card-body {
   padding: 10px;
-  font-family: Share;
+  font-family: "Slackey","cursive";
 }
 
 /* Set the font size for the textarea */
@@ -46,7 +46,7 @@ body{
 }
 
 textarea {
-  font-family: Share;
+  font-family: "Slackey","cursive";
 /*   resize: none; */
   opacity:0.7;
 }
@@ -65,7 +65,7 @@ textarea {
   background-color: teal;
   color: #ffffff;
   font-size: 20px;
-  font-family: Share;
+  font-family: "Slackey","cursive";
   width: 200px; 
 }
 
@@ -78,7 +78,7 @@ textarea {
   margin-top: 2vh;
   margin-right: 10px;
   border-radius: 10%;
-  font-family: Share;
+  font-family: "Slackey","cursive";
 }
 
 #countdown p {
@@ -86,11 +86,11 @@ color: white;
 text-align: center;
 margin: 0;
 font-size: 1.3rem;
-font-family: Share;
+font-family: "Slackey","cursive";
 }
 
 #countdown .canvas-container {
-font-family: Share;
+font-family: "Slackey","cursive";
 }
 
 @media (max-width:500px){

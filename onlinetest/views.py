@@ -16,7 +16,6 @@ import csv
 def index(req):
     config = Config.objects.all().first()
     time_left = int(config.start_time.timestamp())
-    started = False
     if req.user.is_authenticated:
         curr_time = timezone.now()
         if curr_time > config.end_time and not req.user.is_staff:
@@ -24,7 +23,7 @@ def index(req):
             return redirect('/finish/')
         return redirect('/rules/')
     if config.start_time > timezone.now():
-        return render(req, 'onlinetest/index.html', {'time_left': time_left, 'started': started})
+        return render(req, 'onlinetest/index.html', {'time_left': time_left })
     time_left = int(config.end_time.timestamp())
     started = True
     return render(req, 'onlinetest/index.html', {'time_left': time_left, 'started': started})

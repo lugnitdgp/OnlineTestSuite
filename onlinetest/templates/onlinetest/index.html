@@ -17,6 +17,15 @@
       </h4>
     </div>
 
+    <div class="type">
+      <span class="txt-type">
+        {% if started %}
+        Contest Ends in
+        {% else %}
+        Contest Starts in
+        {% endif %}
+      </span>
+    </div>
     <section>
       <ul id="countdown">
         <li><span class="days timenumbers">01</span>
@@ -34,6 +43,7 @@
       </ul>
     </section>
 
+    {% if started %}
     <div class="button login-container">
       <a href='{% url "social:begin" "google-oauth2" %}' class="gplogin">
         <!-- <div class="google-btn">
@@ -46,9 +56,11 @@
         <i class="fa fa-google-plus"></i><span>Sign in with Google</span>
       </a>
     </div>
+    {% endif %}
 
   </div>
 </div>
+{% include 'components/footer.html' %}
 <!-- <div class="container-fluid">
   <div class="card col-lg-5">
     
@@ -81,9 +93,6 @@
       function countdown_proc() {
         var eventDate = '{{ time_left }}';
         var currentDate = Math.floor($.now() / 1000);
-
-        console.log(eventDate);
-        console.log(currentDate);
 
         if (eventDate <= currentDate) {
           callback.call(this);
@@ -180,3 +189,9 @@
   });
 </script>
 {% endblock %}
+
+<style>
+  body {
+    background-image: "{% static 'onlinetest/bg2.jpg' %}" !important;
+  };
+</style>

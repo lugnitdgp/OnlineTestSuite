@@ -1,52 +1,66 @@
 {% extends 'onlinetest/base.html' %}
 
-{% block content %}
 {% load static %}
+
+{% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'onlinetest/css/rules.css' %}">
 
 <div class="container">
-   <div class="myCard">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="myss">
-                    <div class="box"><header>Rules</header>
-                        <br>
-                      <ul>
-                        <li>You will have 1 Hour to complete the test. Test will automatically terminate after that. </li>
-                        <br>
-                        <li>Questions are subjective. You can submit an answer multiple times.</li>
-                        <br>
-                        <li>The timer will start on clicking the Submit and Start Test button.</li>    
-                      </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="mys">
-                  <form class="myForm text-center needs-validation" method="POST" action="{{ '/rules/' }}">
-                    {% csrf_token %}
-                    <header>Fill the Details !</header>
-                          <div class="form-group">
-                                <i class="fas fa-user"></i>
-                                <input class="myInput" name="full_name" type="text" placeholder="Enter Full Name" id="username" required>
-                              <div class="invalid-feedback">Please fill out this field.</div>
-                          </div>
-                          <div class="form-group">
-                                <i class="fas fa-phone-alt"></i>
-                                <input class="myInput" name="phone" placeholder="Enter Contact Number" type="text" id="email" required>
-                                <div class="invalid-feedback">Please fill out this field.</div>
-                            </div>
-                            <div class="form-group">
-                                <i class="fas fa-cube"></i>
-                                <input class="myInput" name="rollno" type="text" id="password" placeholder="Enter Roll Number" required>
-                                <div class="invalid-feedback">Please fill out this field.</div>
-                            </div>
-                            <br><br>
-                            <input type="submit" class="butt" value="Submit & Start Test">
-                  </form>
-                </div>
-            </div>
+  <div class="myCard">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="myss">
+          <div class="box">
+            <header style="font-family:'Slackey';">Rules</header>
+            <br>
+            <ul>
+              <li>You will have 1 Hour to complete the test. Test will automatically terminate after that. </li>
+              <br>
+              <li>Questions are subjective. You can submit an answer multiple times.</li>
+              <br>
+              <li>The timer will start on clicking the Submit and Start Test button.</li>
+            </ul>
           </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mys">
+          <form class="myForm text-center needs-validation" method="POST" action="{{ '/rules/' }}">
+            {% csrf_token %}
+            <header>Fill the Details !</header>
+            <div class="form-group">
+              <i class="fas fa-user"></i>
+              <input class="myInput" name="full_name" type="text" placeholder="Enter Full Name" id="username"
+                style="font-family: 'Slackey'; font-size: small;" required>
+              <div class="invalid-feedback" style="font-family: 'Slackey';">Please fill out this field.</div>
+            </div>
+            <div class="form-group">
+              <i class="fas fa-phone-alt"></i>
+              <input class="myInput" name="phone" placeholder="Enter Contact Number" type="text" id="email"
+                style="font-family: 'Slackey'; font-size: small;" required>
+              <div class="invalid-feedback" style='font-family: "Slackey","cursive";'>Please fill out this field.</div>
+            </div>
+            <div class="form-group">
+              <i class="fas fa-cube"></i>
+              <input class="myInput" name="rollno" type="text" id="password" placeholder="Enter Roll Number"
+                style="font-family: 'Slackey'; font-size: small;" required>
+              <div class="invalid-feedback" style='font-family: "Slackey","cursive";'>Please fill out this field.</div>
+            </div>
+            <br><br>
+            <input type="submit" class="butt" style="font-family: 'Slackey'; font-size: small;"
+              value="Submit & Start Test">
+          </form>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 {% endblock %}
+
+<style>
+  body {
+    background-image: url("{% static 'onlinetest/bg2.jpg' %}") !important;
+  }
+
+  ;
+</style>
