@@ -1,57 +1,54 @@
-{% extends 'onlinetest/base.html' %}
-
-
-{% block content %}
-{% load static %}
+{% extends 'onlinetest/base.html' %} {% block content %} {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'onlinetest/css/questions.css' %}">
 
 </style>
 <div class="sticky" id="countdown">
-  <p>Time Left</p>
-  <div class="canvas-container">
-      <canvas id="minutes"></canvas>
-      <canvas id="seconds"></canvas>
-  </div>
+    <p>Time Left</p>
+    <div class="canvas-container">
+        <canvas id="hours"></canvas>
+        <canvas id="minutes"></canvas>
+        <canvas id="seconds"></canvas>
+    </div>
 </div>
 </div>
 <br><br><br><br><br><br>
 <div class="container">
-  {% for question in questions %}
+    {% for question in questions %}
     <div class="row" id="q{{ question.id }}">
-      <div class="card">
+        <div class="card">
 
-        <h2 class="card-heading">{{ forloop.counter }}. {{ question.title }}</h2>
-        <div class="card-body">
-          <form method="POST" action="{{ '/answers' }}/{{ question.id }}">
-            {% csrf_token %}
-            {% if question.answer %}
-            <textarea rows="6" class="form-control" name="text" placeholder="Type your answer here ...">{{ question.answer }}</textarea>
-            {% else %}
-            <textarea rows="6" class="form-control" name="text" placeholder="Type your answer here ..."></textarea>
-            {% endif %}
-            <span class="a">
+            <h2 class="card-heading">{{ forloop.counter }}. {{ question.title }}</h2>
+            <div class="card-body">
+                <form method="POST" action="{{ '/answers' }}/{{ question.id }}">
+                    {% csrf_token %}
+                    <div style="display: flex; justify-content: center;">
+                        <img src="{{ question.image.url }}" class="img-thumbnail" style="width: 300px; height: 300px;">
+                    </div>
+                    <br/> {% if question.answer %}
+                    <textarea rows="6" class="form-control" name="text" placeholder="Type your answer here ...">{{ question.answer }}</textarea> {% else %}
+                    <textarea rows="6" class="form-control" name="text" placeholder="Type your answer here ..."></textarea> {% endif %}
+                    <span class="a">
             <button type="submit" class="btn btn-dark submit-btn">Submit Answer</button></span>
-          <span class="a">
+                    <span class="a">
             {% if messages %}
-                {% for msg in messages %}
-                    {% if question.id|stringformat:"i" == msg.message|slice:"-1:"|first %}
-                         <p class="btn btn-light msg-btn">{{ msg.message|slice:"-2" }}</p>
-                    {% endif %}
-                {% endfor %}
+            {% for msg in messages %}
+            {% if question.id|stringformat:"i" == msg.message|slice:"-1:"|first %}
+            <p class="btn btn-light msg-btn">{{ msg.message|slice:"-2" }}</p>
             {% endif %}
-          </span>  
-          </form>
-          
+            {% endfor %}
+            {% endif %}
+          </span>
+                </form>
+
+            </div>
         </div>
-      </div>
+    </div>
+    <br> {% endfor %}
+    <div class="text-center">
+        <a href="{{ '/finish/' }}" class="btn finish-btn">Finish</a>
     </div>
     <br>
-  {% endfor %}
-  <div class="text-center">
-      <a href="{{ '/finish/' }}" class="btn finish-btn">Finish</a>
-    </div>
-    <br>
-  </div>
+</div>
 
 
 
@@ -61,11 +58,10 @@
 <script>
     var t_left = {{ time_left }};
     //console.log(t_left);
-    var init_time = parseInt(t_left);// for timer element
+    var init_time = parseInt(t_left); // for timer element
     var tleft = parseInt(t_left); // for updating timer
     startTimer();
     start_timer_updater(init_time);
-
 </script>
 
 {% endblock %}

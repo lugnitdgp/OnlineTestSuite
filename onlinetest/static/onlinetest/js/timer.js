@@ -33,7 +33,7 @@ canvasElements.forEach(function (canvas, index) {
     info[name] = { 'ctx': index, 'value': 0, 'prevValue': -1 };
 });
 var canvasKeys = Object.keys(info);
-// info.hours.denominator = time.hour;
+info.hours.denominator = time.hour;
 info.minutes.denominator = time.minute;
 info.seconds.denominator = time.second;
 
@@ -47,6 +47,10 @@ function showRemainingTime() {
         init_time = 0;
     }
     // info.minutes.value = Math.floor((secondsLeft % (time.second * time.minute)) / time.second);
+    info.hours.value = Math.floor(secondsLeft / (time.second * time.second))
+    
+    secondsLeft %= time.second * time.second;
+
     info.minutes.value = Math.floor(secondsLeft / time.second);
     info.seconds.value = Math.floor(secondsLeft % time.second);
 

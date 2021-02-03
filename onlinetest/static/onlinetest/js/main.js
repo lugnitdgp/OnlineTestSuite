@@ -7,14 +7,7 @@ function sleep(ms) {
 function update_time(){
   tleft -= 5;
   //tleft is global here
-  if(tleft >= -4){
-      console.log("Should update time");
-      let xhttp = new XMLHttpRequest();
-      xhttp.open("POST", "/update_time/", true);
-      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      xhttp.send("time_left=" + tleft.toString());
-  }
-  else {
+  if(tleft < -4) {
       window.location.replace("/finish/");
   }
 }
@@ -90,7 +83,7 @@ class TypeWriter {
   
   document.addEventListener("DOMContentLoaded", () => {
     const txtElement = document.querySelector(".txt-type");
-    const words = ["Welcome to GLUG Auditions"];
+    const words = ["Crack your way into JCC!"];
     const wait = txtElement.getAttribute("data-wait");
     const typeWriter = new TypeWriter(txtElement, words, wait);
   });

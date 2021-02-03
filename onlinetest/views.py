@@ -12,28 +12,38 @@ from django.utils import timezone
 import os
 import csv
 
+
 def index(req):
     config = Config.objects.all().first()
+    time_left = int(config.start_time.timestamp())
+    started = False
     if req.user.is_authenticated:
         curr_time = timezone.now()
-        if curr_time < config.start_time and not req.user.is_staff:
-            logout_user(req)
-            return HttpResponse('Second wave of First round of auditions will go live at 9.00 PM on 4th November 2019.')
         if curr_time > config.end_time and not req.user.is_staff:
             logout_user(req)
-            return HttpResponse('First round of GLUG auditions has finished. See you next year :)')
+            return redirect('/finish/')
         return redirect('/rules/')
-    return render(req, 'onlinetest/index.html')
+    if config.start_time > timezone.now():
+        return render(req, 'onlinetest/index.html', {'time_left': time_left, 'started': started})
+    time_left = int(config.end_time.timestamp())
+    started = True
+    return render(req, 'onlinetest/index.html', {'time_left': time_left, 'started': started})
+
 
 @login_required
 def logout_user(req):
     logout(req)
     return redirect('/')
 
+
 @login_required
 def questions(req):
     profile = Profile.objects.get(user=req.user)
-    if profile.time_left <= 0:
+    time_left = (Config.objects.all().first().end_time - timezone.now()).total_seconds()
+    print(timezone.localtime(timezone.now()))
+    print("end time is: ", timezone.localtime(Config.objects.all().first().end_time))
+    print("time left is:", time_left)
+    if time_left <= 0:
         return HttpResponseRedirect('/finish/', {})
     questions = Question.objects.all()
     answers = Answer.objects.filter(user=req.user)
@@ -45,10 +55,10 @@ def questions(req):
         else:
             question.answer = None
 
-    time_left = profile.time_left
     name = profile.full_name
-    ctx = { 'questions': questions, 'user': name , 'time_left': time_left}
+    ctx = {'questions': questions, 'user': name, 'time_left': time_left}
     return render(req, 'onlinetest/questions.html', ctx)
+
 
 @login_required
 def answers(req, qid):
@@ -76,6 +86,7 @@ def answers(req, qid):
     else:
         return HttpResponse(status=404)
 
+
 @login_required
 def rules(req):
     if req.method == 'POST':
@@ -90,39 +101,18 @@ def rules(req):
             return redirect('/questions/')
     else:
         if Profile.objects.filter(user=req.user).exists():
-            return HttpResponseRedirect('/questions/',{})   
+            return HttpResponseRedirect('/questions/', {})
         ctx = {'user': req.user, 'noprofile': True}
         return render(req, 'onlinetest/rules.html', ctx)
 
-@login_required
-@csrf_exempt
-def UpdateTime(req):
-    if req.method == "POST":
-        print(req.POST)
-        t_left = int(req.POST['time_left'])
-        profile = Profile.objects.get(user=req.user)
-        if t_left <= 0:
-            profile.time_left = 0
-            profile.save()
-            return HttpResponse(status=200)
-
-        if t_left < profile.time_left:
-            # possibly valid
-            profile.time_left = t_left
-            profile.save()
-            return HttpResponse(status=200)
-
-        else:
-            return HttpResponse(status=406) # 406-NotAcceptable
-    else:
-        return None
 
 @login_required
 def finish(req):
     profile = Profile.objects.get(user=req.user)
     name = profile.full_name
-    ctx = { 'user': name }
+    ctx = {'user': name}
     return render(req, 'onlinetest/finish.html', ctx)
+
 
 def results(req):
     config = Config.objects.all().first()
@@ -132,10 +122,11 @@ def results(req):
     else:
         profiles = Profile.objects.filter(selected=True).order_by('-priority')
         profiles = profiles[:config.results_list_count]
-        profiles = sorted(profiles, key=lambda o:o.full_name)
+        profiles = sorted(profiles, key=lambda o: o.full_name)
 
         ctx = {'profiles': profiles, 'count': len(profiles)}
         return render(req, 'onlinetest/results.html', ctx)
+
 
 def scrape_answers(full_name, rollno, user_id):
     answers = Answer.objects.filter(user=user_id)
@@ -148,6 +139,7 @@ def scrape_answers(full_name, rollno, user_id):
         f.write('\n\n')
     f.close()
 
+
 @login_required
 def print_results(req):
     if req.user.is_staff:
@@ -158,13 +150,14 @@ def print_results(req):
     else:
         return HttpResponse('You are not allowed to access the results.')
 
+
 @staff_member_required
 def export_profile_csv(req):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="profiles.csv"'
 
     writer = csv.writer(response)
-    writer.writerow(['Name', 'Email address', 'Phone','RollNo'])
+    writer.writerow(['Name', 'Email address', 'Phone', 'RollNo'])
 
     profiles = Profile.objects.all()
     for profile in profiles:

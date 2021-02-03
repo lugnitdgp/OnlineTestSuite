@@ -8,6 +8,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 class Question(models.Model):
     title = models.CharField(max_length=1024)
+    image = models.ImageField(upload_to="question_images/", null=True)
 
     def __str__(self):
         return self.title
@@ -35,8 +36,10 @@ class Profile(models.Model):
     remarks = models.TextField(help_text="Write remarks after reviewing", blank=True, null=True)
     selected = models.BooleanField(default=False)
     viewed_by = models.ManyToManyField(User, blank=True, related_name="views")
-    selected_for_task_round = models.BooleanField(default=False)
-    priority = models.PositiveIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(10)], help_text="You can set priority from 0 to 10. Max priority 10.")
+
+    class Meta:
+        verbose_name = "Profile"
+        verbose_name_plural = "Profiles"
 
     def __str__(self):
         return self.full_name
