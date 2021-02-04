@@ -20,12 +20,15 @@
     <div class="type">
       <span class="txt-type">
         {% if started %}
-        Contest Ends in
+        Contest Ends in!
+        {% elif ended %}
+        Contest Ended!
         {% else %}
         Contest Starts in
         {% endif %}
       </span>
     </div>
+    {% if not ended %}
     <section>
       <ul id="countdown">
         <li><span class="days timenumbers">01</span>
@@ -42,6 +45,7 @@
         </li>
       </ul>
     </section>
+    {% endif %}
 
     {% if started %}
     <div class="button login-container">
@@ -158,7 +162,6 @@
 
     function () {
       // This will run when the countdown ends
-      alert("We're Out Now");
     });
 
 

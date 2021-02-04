@@ -9,9 +9,10 @@ var specs = {
     'offset': -Math.PI / 2,
     'color': 'teal',
     'bgColor': 'white',
-    'idFont': 'small-caps 400 1rem Share',
-    'valueFont': 'bold 1.5rem Share',
-    'fontColor': 'white',
+    'idFont': 'small-caps 400 0.8rem Slackey',
+    'valueFont': '1.5rem Slackey',
+    'font' : 'Slackey',
+    'fontColor' : '#f77468',
 };
 var time = {
     'millisecond': 1000,
@@ -66,6 +67,7 @@ function showRemainingTime() {
 // draw function
 function draw(ctx, part, id, value) {
     // calculate angles
+    
     var start = specs.offset;
     var between = 2 * Math.PI * part + specs.offset;
     var end = 2 * Math.PI + specs.offset;

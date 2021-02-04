@@ -1,61 +1,58 @@
 @import url('https://fonts.googleapis.com/css2?family=Share:wght@700&display=swap');
-
-body{
-/*   background-image: url("https://cdn.pling.com/img/c/d/7/9/d28dfc895cd8fbc39da06238b5bedf6c2d1e.jpg"); */
-  background-image: url("https://linuxconfig.org/images/Focal-Fossa_WP_1920x1080_1.png");
+body {
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
   width: 100%;
   height: 100%;
-  font-weight: "Slackey","cursive";
+  font-weight: "Slackey", "cursive";
 }
-
-
 
 .row {
   margin: 10px 0;
 }
 
-.card-heading{
-  font-family: "Slackey","cursive";
-  font-size:24px;
-  text-align:center;
+.card-heading {
+  font-family: "Slackey", "cursive";
+  font-size: 24px;
+  text-align: center;
   color: white;
   margin: 7px;
   margin-bottom: 0;
 }
-.card{
+
+.card {
   width: 100%;
-  height:auto;
-  background-color:rgba(60,40,60,0.6);
-  backdrop-filter:blur(4px);
+  height: auto;
+  background-color: rgba(60, 40, 60, 0.6);
+  backdrop-filter: blur(4px);
   border-radius: 3px;
   box-shadow: 3px 3px 6px #222;
 }
 
-
 .card-body {
   padding: 10px;
-  font-family: "Slackey","cursive";
+  font-family: "Slackey", "cursive";
 }
 
 /* Set the font size for the textarea */
+
 .form-control {
   font-size: 16px;
 }
 
 textarea {
-  font-family: "Slackey","cursive";
-/*   resize: none; */
-  opacity:0.7;
+  font-family: "Slackey", "cursive";
+  /*   resize: none; */
+  opacity: 0.7;
 }
 
 .submit-btn {
   margin-top: 10px;
   background-color: teal;
 }
-.msg-btn{
+
+.msg-btn {
   margin-top: 25px;
   background-color: #CCFFE5;
   color: black;
@@ -65,12 +62,12 @@ textarea {
   background-color: teal;
   color: #ffffff;
   font-size: 20px;
-  font-family: "Slackey","cursive";
-  width: 200px; 
+  font-family: "Slackey", "cursive";
+  width: 200px;
 }
 
-#countdown{
-  background: rgba(0,0,0,0.5);
+#countdown {
+  background: rgba(0, 0, 0, 0.5);
   float: right;
   /* top: 30px; */
   right: 10px;
@@ -78,38 +75,51 @@ textarea {
   margin-top: 2vh;
   margin-right: 10px;
   border-radius: 10%;
-  font-family: "Slackey","cursive";
+  font-family: "Slackey", "cursive";
 }
 
 #countdown p {
-color: white;
-text-align: center;
-margin: 0;
-font-size: 1.3rem;
-font-family: "Slackey","cursive";
+  color: white;
+  text-align: center;
+  margin: 0;
+  font-size: 1.3rem;
+  font-family: "Slackey", "cursive";
 }
 
 #countdown .canvas-container {
-font-family: "Slackey","cursive";
+  font-family: "Slackey", "cursive";
 }
 
-@media (max-width:500px){
-  #countdown .canvas-container { max-width: 220px; }
-  #countdown canvas:nth-child(-n+2) { margin-bottom: 10px; }
-  #countdown{
-  padding: 0.08rem 0.2rem 0.08rem 0.2rem;
+@media (max-width:500px) {
+  #countdown .canvas-container {
+    max-width: 220px;
   }
-  .msg-btn{
+  #countdown canvas:nth-child(-n+2) {
+    margin-bottom: 10px;
+  }
+  #countdown {
+    padding: 0.08rem 0.2rem 0.08rem 0.2rem;
+  }
+  .msg-btn {
     margin-top: 25px;
   }
-}
-@media (min-width:1600px){
-div.sticky {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 10px;
-}
+
+  .container {
+    padding-top: 40%;
+    position: relative;
+  }
 }
 
+@media (min-width:1600px) {
+  div.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 10px;
+  }
+}
 
-
+.container {
+  padding-top: 10%;
+  width: 100%;
+  position: relative;
+}

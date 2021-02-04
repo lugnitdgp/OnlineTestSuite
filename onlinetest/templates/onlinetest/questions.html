@@ -11,7 +11,7 @@
     </div>
 </div>
 </div>
-<br><br><br><br><br><br>
+
 <div class="container">
     {% for question in questions %}
     <div class="row" id="q{{ question.id }}">
@@ -21,23 +21,27 @@
             <div class="card-body">
                 <form method="POST" action="{{ '/answers' }}/{{ question.id }}">
                     {% csrf_token %}
+                    {% if question.image %}
                     <div style="display: flex; justify-content: center;">
                         <img src="{{ question.image.url }}" class="img-thumbnail" style="width: 300px; height: 300px;">
                     </div>
-                    <br/> {% if question.answer %}
-                    <textarea rows="6" class="form-control" name="text" placeholder="Type your answer here ...">{{ question.answer }}</textarea> {% else %}
-                    <textarea rows="6" class="form-control" name="text" placeholder="Type your answer here ..."></textarea> {% endif %}
+                    {% endif %}
+                    <br /> {% if question.answer %}
+                    <textarea rows="6" class="form-control" name="text"
+                        placeholder="Type your answer here ...">{{ question.answer }}</textarea> {% else %}
+                    <textarea rows="6" class="form-control" name="text"
+                        placeholder="Type your answer here ..."></textarea> {% endif %}
                     <span class="a">
-            <button type="submit" class="btn btn-dark submit-btn">Submit Answer</button></span>
+                        <button type="submit" class="btn btn-dark submit-btn">Submit Answer</button></span>
                     <span class="a">
-            {% if messages %}
-            {% for msg in messages %}
-            {% if question.id|stringformat:"i" == msg.message|slice:"-1:"|first %}
-            <p class="btn btn-light msg-btn">{{ msg.message|slice:"-2" }}</p>
-            {% endif %}
-            {% endfor %}
-            {% endif %}
-          </span>
+                        {% if messages %}
+                        {% for msg in messages %}
+                        {% if question.id|stringformat:"i" == msg.message|slice:"-1:"|first %}
+                        <p class="btn btn-light msg-btn">{{ msg.message|slice:"-2" }}</p>
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                    </span>
                 </form>
 
             </div>
@@ -48,7 +52,11 @@
         <a href="{{ '/finish/' }}" class="btn finish-btn">Finish</a>
     </div>
     <br>
+    <br><br><br><br><br>
+    {% include 'components/footer.html' %}
 </div>
+
+
 
 
 

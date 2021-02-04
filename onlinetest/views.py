@@ -18,15 +18,16 @@ def index(req):
     time_left = int(config.start_time.timestamp())
     if req.user.is_authenticated:
         curr_time = timezone.now()
+        print(curr_time, config.end_time, req.user.is_staff)
         if curr_time > config.end_time and not req.user.is_staff:
-            logout_user(req)
             return redirect('/finish/')
         return redirect('/rules/')
     if config.start_time > timezone.now():
         return render(req, 'onlinetest/index.html', {'time_left': time_left })
+    elif config.end_time < timezone.now():
+        return render(req, 'onlinetest/index.html', {'ended':True})
     time_left = int(config.end_time.timestamp())
-    started = True
-    return render(req, 'onlinetest/index.html', {'time_left': time_left, 'started': started})
+    return render(req, 'onlinetest/index.html', {'time_left': time_left, 'started': True})
 
 
 @login_required
