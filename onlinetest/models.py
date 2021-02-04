@@ -31,6 +31,7 @@ class Profile(models.Model):
     full_name = models.CharField(max_length=255)
     phone = models.CharField(max_length=14)
     rollno = models.CharField(max_length=10)
+    image = models.CharField(max_length=200,blank=True)
 
     # for admin uses
     remarks = models.TextField(help_text="Write remarks after reviewing", blank=True, null=True)
@@ -49,7 +50,6 @@ class Config(models.Model):
     start_time = models.DateTimeField(default=datetime.now)
     end_time = models.DateTimeField(default=datetime.now)
     result_release_time = models.DateTimeField(default=datetime.now)
-    results_list_count = models.IntegerField(default=30)
 
     def __str__(self):
         return "Project Wide Settings"

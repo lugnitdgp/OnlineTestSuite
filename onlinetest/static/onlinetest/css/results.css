@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Share:wght@700&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Slackey&display=swap");
 
-body {  
-  overflow: hidden;
+html { height: 100%; }
+
+body { 
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
@@ -10,13 +11,26 @@ body {
   height: 100%;
   font-family: "Slackey", "cursive";
   color: white;
+  overflow-y: scroll !important;
 }
 
 .b {
-  margin-left: 5%;
   padding-top: 2%;
+  padding-bottom: 7em;
+  justify-content: center;
+  text-align: center;
+  overflow-y: scroll !important;
+  flex-direction: column;
+  position: relative !important;
+  min-height: 90% !important; 
 }
 
 li, p {
   font-size: 20px;
+}
+
+@media (max-width: 600px) {
+  .b h1 {
+    font-size: 2rem;
+  }
 }

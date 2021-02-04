@@ -10,7 +10,16 @@ from django.contrib.contenttypes.models import ContentType
 class ProfileAdmin(admin.ModelAdmin):
     change_form_template = "admin/custom_change_form.html"
 
-    fields = ['user', 'time_left', 'full_name', 'phone', 'rollno', 'remarks', 'selected',]
+    fields = [
+        'user',
+        'time_left',
+        'full_name',
+        'phone',
+        'rollno',
+        'image',
+        'remarks',
+        'selected',
+    ]
     list_display = [
         'full_name',
         'user',
@@ -18,7 +27,9 @@ class ProfileAdmin(admin.ModelAdmin):
         'selected',
     ]
     search_fields = ['full_name']
-    actions = ['increase_time_by_10',]
+    actions = [
+        'increase_time_by_10',
+    ]
 
     def increase_time_by_10(self, req, queryset):
         for profile in queryset:
@@ -35,7 +46,10 @@ class ProfileAdmin(admin.ModelAdmin):
         already_submitted = []
         ques_links = []
         for q in questions:
-            ques_links.append(q.image.url)
+            if q.image:
+                ques_links.append(q.image.url)
+            else:
+                ques_links.append(None)
             ans = answers.filter(question=q).first()
             if ans:
                 already_submitted.append(ans.text)

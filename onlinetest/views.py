@@ -12,22 +12,41 @@ from django.utils import timezone
 import os
 import csv
 
+def save_profile(backend, user, response, *args, **kwargs):
+    if backend.name == 'google-oauth2':
+        profile = user
+        try:
+            player = Profile.objects.get(user=profile)
+        except:
+            player = Profile(user=profile)
+            player.full_name = response.get('name')
+            player.image = response.get('picture')
+            player.save()
 
 def index(req):
     config = Config.objects.all().first()
     time_left = int(config.start_time.timestamp())
+    image = None
     if req.user.is_authenticated:
+        image = Profile.objects.get(user=req.user).image
         curr_time = timezone.now()
         print(curr_time, config.end_time, req.user.is_staff)
         if curr_time > config.end_time and not req.user.is_staff:
             return redirect('/finish/')
         return redirect('/rules/')
+
+    ctx = {}
+    if image:
+        ctx['image'] = image
     if config.start_time > timezone.now():
-        return render(req, 'onlinetest/index.html', {'time_left': time_left })
+        ctx['time_left'] = time_left
+        return render(req, 'onlinetest/index.html', ctx)
     elif config.end_time < timezone.now():
-        return render(req, 'onlinetest/index.html', {'ended':True})
-    time_left = int(config.end_time.timestamp())
-    return render(req, 'onlinetest/index.html', {'time_left': time_left, 'started': True})
+        ctx['ended'] = True
+        return render(req, 'onlinetest/index.html', ctx)
+    ctx['time_left'] = int(config.end_time.timestamp())
+    ctx['started'] = True
+    return render(req, 'onlinetest/index.html', ctx)
 
 
 @login_required
@@ -40,11 +59,9 @@ def logout_user(req):
 def questions(req):
     profile = Profile.objects.get(user=req.user)
     time_left = (Config.objects.all().first().end_time - timezone.now()).total_seconds()
-    print(timezone.localtime(timezone.now()))
-    print("end time is: ", timezone.localtime(Config.objects.all().first().end_time))
-    print("time left is:", time_left)
+    
     if time_left <= 0:
-        return HttpResponseRedirect('/finish/', {})
+        return HttpResponseRedirect('/finish/', {'image': profile.image})
     questions = Question.objects.all()
     answers = Answer.objects.filter(user=req.user)
     # pair up the questions with their corresponding answers
@@ -56,7 +73,7 @@ def questions(req):
             question.answer = None
 
     name = profile.full_name
-    ctx = {'questions': questions, 'user': name, 'time_left': time_left}
+    ctx = {'questions': questions, 'user': name, 'time_left': time_left, 'image': profile.image}
     return render(req, 'onlinetest/questions.html', ctx)
 
 
@@ -102,7 +119,7 @@ def rules(req):
     else:
         if Profile.objects.filter(user=req.user).exists():
             return HttpResponseRedirect('/questions/', {})
-        ctx = {'user': req.user, 'noprofile': True}
+        ctx = {'user': req.user, 'noprofile': True, 'image': Profile.image}
         return render(req, 'onlinetest/rules.html', ctx)
 
 
@@ -110,22 +127,31 @@ def rules(req):
 def finish(req):
     profile = Profile.objects.get(user=req.user)
     name = profile.full_name
-    ctx = {'user': name}
+    ctx = {'user': name, 'image': profile.image}
     return render(req, 'onlinetest/finish.html', ctx)
 
 
 def results(req):
+    image = None
+    if req.user.is_authenticated:
+        image = Profile.objects.get(user=req.user).image
+    
+    ctx = {}
+    if image:
+        ctx['image'] = image
+
     config = Config.objects.all().first()
     curr_time = timezone.now()
     if curr_time < config.result_release_time and (not req.user.is_staff):
-        return HttpResponse('Results not yet released.')
+        ctx['not_declared'] = True
     else:
-        profiles = Profile.objects.filter(selected=True).order_by('-priority')
-        profiles = profiles[:config.results_list_count]
+        profiles = Profile.objects.filter(selected=True)
         profiles = sorted(profiles, key=lambda o: o.full_name)
 
-        ctx = {'profiles': profiles, 'count': len(profiles)}
-        return render(req, 'onlinetest/results.html', ctx)
+        ctx['profiles'] = profiles
+        ctx['count'] = len(profiles)
+        
+    return render(req, 'onlinetest/results.html', ctx)
 
 
 def scrape_answers(full_name, rollno, user_id):

@@ -16,3 +16,12 @@
   margin-left: 10px;
 }
 
+.nav-link img {
+  color: white;
+  right: 10%;
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+  background-position: center;
+}
+

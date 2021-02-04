@@ -99,9 +99,11 @@
                     {% for response in responses %}
                     <h3>{{ forloop.counter }}. {{ response.0 }}</h3>
                     <br />
+                    {% ifnotequal response.2 None %}
                     <div style="display: flex; justify-content: center;">
                         <img src="{{ response.2 }}" style="width: 300px; height: 300px;">
                     </div>
+                    {% endifnotequal %}
                     <br />
                     <p>{{ response.1 }}</p>
                     <br />

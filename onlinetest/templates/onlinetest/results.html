@@ -1,15 +1,35 @@
-
+{% extends 'onlinetest/base.html' %}
 
 {% load static %}
+
+{% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'onlinetest/css/results.css' %}">
+<link rel="stylesheet" href="{% static 'onlinetest/css/footer.css' %}">
 <div class="b">
-<h1>Results of Second Round of Auditions</h1>
-<h1>Congratulations to all !</h1>
-<ul>
-{% for profile in profiles %}
-<li>{{ profile.full_name }} - {{ profile.rollno }}</li>
-{% endfor %}
-</ul>
-<p>Count : {{ count }} </p>
+    {% if not_declared %}
+    <h1>Results have not been declared yet!</h1>
+    <h1>Hold onto your seats!</h1>
+    {% else %}
+    <h1>Results of first round of JCC are here!</h1>
+    <h1>Congratulations to all !</h1>
+    <ul>
+        
+        {% for profile in profiles %}
+        <li>{{ profile.full_name }} - {{ profile.rollno }}</li>
+        {% endfor %}
+    </ul>
+    <!-- <p>Count : {{ count }} </p> -->
+    {% endif %}
+    
+    {% include 'components/footer.html' %}
 </div>
 
+{% endblock %}
+
+<style>
+    div.footer {
+        position: fixed !important;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
