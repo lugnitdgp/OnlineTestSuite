@@ -1,6 +1,10 @@
 # OnlineTestSuite
 
-![alt text](.github/onlinegit.png)
+<p align="center">
+  <a href="#">
+    <img alt="logo" src=".github/jcclogo.png" width="140" />
+  </a>
+</p>
 
 Use a virtual envionment for installing this, 
 i.e `venv` or `pipenv`.

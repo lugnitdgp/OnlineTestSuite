@@ -14,11 +14,14 @@ body {
 
 .card-heading {
   font-family: "Slackey", "cursive";
-  font-size: 24px;
-  text-align: center;
+  text-align: left;
   color: white;
   margin: 7px;
   margin-bottom: 0;
+  padding-left: 3px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-right: 3px;
 }
 
 .card {

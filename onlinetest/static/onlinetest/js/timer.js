@@ -43,6 +43,7 @@ info.seconds.denominator = time.second;
 function showRemainingTime() {
     // calculate new values
     var secondsLeft = init_time;
+
     init_time -= 1;
     if(init_time < 0){
         init_time = 0;

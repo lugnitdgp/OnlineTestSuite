@@ -17,7 +17,7 @@
     <div class="row" id="q{{ question.id }}">
         <div class="card">
 
-            <h2 class="card-heading">{{ forloop.counter }}. {{ question.title }}</h2>
+            <h2 class="card-heading" style="font-size: 1em !important;">{{ question.title | safe }}</h2>
             <div class="card-body">
                 <form method="POST" action="{{ '/answers' }}/{{ question.id }}">
                     {% csrf_token %}
@@ -57,11 +57,9 @@
 </div>
 
 
-
-
-
 <script src="{% static 'onlinetest/js/main.js' %}"></script>
 <script src="{% static 'onlinetest/js/timer.js' %}"></script>
+<script src="{% static 'onlinetest/js/jquery.toast.min.js' %}"></script>
 
 <script>
     var t_left = {{ time_left }};
@@ -70,6 +68,30 @@
     var tleft = parseInt(t_left); // for updating timer
     startTimer();
     start_timer_updater(init_time);
+
+    checkForToast = () => {
+        if (Math.floor(t_left) == 600) {
+            $.toast({
+                heading: '<span style="font-family:Slackey; font-size: 1em;">Information</span><br/>',
+                text: '<span style="font-family:Slackey; font-size: 1em;">Last 10 minutes remain! Please submit all the questions before continuing!</span>',
+                showHideTransition: 'slide',
+                icon: 'info',
+                hideAfter: 5000,
+            })
+        }
+        else if (Math.floor(t_left) == 60) {
+            $.toast({
+                heading: '<span style="font-family:Slackey; font-size: 1em;">Information</span><br/>',
+                text: '<span style="font-family:Slackey; font-size: 1em;">Last minute! Please submit all your questions!</span>',
+                showHideTransition: 'slide',
+                icon: 'warning',
+                hideAfter: 6000
+            })
+        }
+        t_left -= 1;
+    }
+
+    setInterval(checkForToast, 1000);
 </script>
 
 {% endblock %}
