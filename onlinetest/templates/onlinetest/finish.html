@@ -28,9 +28,9 @@
 <div class=content>
     <div class="wrapper-1">
         <div class="wrapper-2">
-            <h1>Thank you for playing !</h1>
-            <p>Thanks for subscribing to our news letter. </p>
-            <p>you should receive a confirmation email soon </p>
+            <h2 style="font-family: Slackey; font-size: 3.8em;">Thank you for participarting !</h2>
+            <p>Results of the first round will be out soon.</p>
+            <p>Till the, may the source be with you! </p>
             <button class="go-home" onclick="location.href = '/logout/'">
                 Finish
             </button>
@@ -43,7 +43,17 @@
     </div>
 </div>
 
+<br><br>
+{% include 'components/footer.html' %}
+
+<style>
+    .footer {
+        position: relative !important;
+    }
+</style>
+
 
 
 <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Source+Sans+Pro" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'onlinetest/css/footer.css' %}">
 {% endblock %}

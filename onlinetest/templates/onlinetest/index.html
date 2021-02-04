@@ -47,7 +47,7 @@
     </section>
     {% endif %}
 
-    {% if started %}
+    {% if started or ended %}
     <div class="button login-container">
       <a href='{% url "social:begin" "google-oauth2" %}' class="gplogin">
         <!-- <div class="google-btn">
