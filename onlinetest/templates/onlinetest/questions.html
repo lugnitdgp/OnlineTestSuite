@@ -2,12 +2,14 @@
 <link rel="stylesheet" type="text/css" href="{% static 'onlinetest/css/questions.css' %}">
 
 </style>
-<div class="sticky" id="countdown" style="position: sticky !important; top:10% !important;">
-    <p>Time Left</p>
-    <div class="canvas-container">
-        <canvas id="hours"></canvas>
-        <canvas id="minutes"></canvas>
-        <canvas id="seconds"></canvas>
+<div style="width: 100vw; z-index: 950; position: sticky; display: flex; justify-content: center;">
+    <div class="sticky" id="countdown">
+        <p>Time Left</p>
+        <div class="canvas-container" style="display: flex; align-items: center;">
+            <canvas id="hours" style="padding: 0.25em;"></canvas> 
+            <canvas id="minutes" style="padding: 0.25em;"></canvas>
+            <canvas id="seconds" style="padding: 0.25em;"></canvas>
+        </div>
     </div>
 </div>
 </div>

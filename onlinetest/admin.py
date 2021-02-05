@@ -6,13 +6,12 @@ from django.urls import reverse, NoReverseMatch, path
 from django.utils.html import format_html, escape
 from django.contrib.contenttypes.models import ContentType
 
-
+admin.site.site_header = "JCC Administration"
 class ProfileAdmin(admin.ModelAdmin):
     change_form_template = "admin/custom_change_form.html"
 
     fields = [
         'user',
-        'time_left',
         'full_name',
         'phone',
         'rollno',
@@ -23,20 +22,9 @@ class ProfileAdmin(admin.ModelAdmin):
     list_display = [
         'full_name',
         'user',
-        'time_left',
         'selected',
     ]
     search_fields = ['full_name']
-    actions = [
-        'increase_time_by_10',
-    ]
-
-    def increase_time_by_10(self, req, queryset):
-        for profile in queryset:
-            profile.time_left += 600
-            profile.save()
-
-    increase_time_by_10.short_description = "Increase time by 10 min"
 
     def get_dynamic_info(self, object_id):
         questions = Question.objects.all()
@@ -64,7 +52,7 @@ class ProfileAdmin(admin.ModelAdmin):
 
     def get_readonly_fields(self, request, obj=None):
         if obj and (not request.user.is_superuser):
-            return ['user', 'time_left', 'full_name', 'rollno', 'phone']
+            return ['user', 'full_name', 'rollno', 'phone']
         else:
             return []
 

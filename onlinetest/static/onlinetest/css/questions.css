@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Share:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
+
 body {
   background-position: center;
   background-attachment: fixed;
@@ -82,7 +84,7 @@ textarea {
   font-family: "Slackey", "cursive";
   position: sticky !important;
   top:10% !important;
-  z-index: 950 !important;
+  margin-bottom: 1em !important;
 }
 
 #countdown p {
@@ -95,15 +97,16 @@ textarea {
 
 #countdown .canvas-container {
   font-family: "Slackey", "cursive";
+  display: inline-flex;
 }
 
 @media (max-width:600px) {
   #countdown .canvas-container {
     max-width: 420px;
   }
-  #countdown canvas:nth-child(-n+2) {
+  /* #countdown canvas:nth-child(-n+2) {
     margin-bottom: 10px;
-  }
+  } */
   #countdown {
     padding: 0.08rem 0.2rem 0.08rem 0.2rem;
   }
@@ -112,7 +115,7 @@ textarea {
   }
 
   .container {
-    padding-top: 70% !important;
+    padding-top: 7% !important;
     position: fixed;
   }
 }
@@ -126,7 +129,6 @@ textarea {
 }
 
 .container {
-  padding-top: 10%;
   width: 100%;
   position: relative;
 }

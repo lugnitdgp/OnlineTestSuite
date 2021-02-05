@@ -34,7 +34,7 @@ def index(req):
         curr_time = timezone.now()
         if curr_time > config.end_time and not req.user.is_staff:
             return redirect('/finish/')
-        elif curr_time > config.start_time and curr_time < config.end_time:
+        elif (curr_time > config.start_time and curr_time < config.end_time) or not Profile.objects.get(user=req.user).phone:
             return redirect('/rules/')
 
     ctx = {}
@@ -163,39 +163,3 @@ def results(req):
     return render(req, 'onlinetest/results.html', ctx)
 
 
-def scrape_answers(full_name, rollno, user_id):
-    answers = Answer.objects.filter(user=user_id)
-    f = open(os.path.join(os.environ['HOME'], 'results.txt'), 'a')
-    f.write('---------------------------------\n')
-    f.write(full_name + " - " + rollno + "\n")
-    f.write('---------------------------------\n')
-    for i, answer in enumerate(answers):
-        f.write(str(i) + ". " + answer.text)
-        f.write('\n\n')
-    f.close()
-
-
-@login_required
-def print_results(req):
-    if req.user.is_staff:
-        profiles = Profile.objects.filter(selected=True)
-        for profile in profiles:
-            scrape_answers(profile.full_name, profile.rollno, profile.user)
-        return HttpResponse('Done Saving Results.')
-    else:
-        return HttpResponse('You are not allowed to access the results.')
-
-
-@staff_member_required
-def export_profile_csv(req):
-    response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = 'attachment; filename="profiles.csv"'
-
-    writer = csv.writer(response)
-    writer.writerow(['Name', 'Email address', 'Phone', 'RollNo'])
-
-    profiles = Profile.objects.all()
-    for profile in profiles:
-        writer.writerow([profile.full_name, profile.user.email, profile.phone, profile.rollno])
-
-    return response
