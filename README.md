@@ -1,4 +1,4 @@
-# OnlineTestSuite
+# OnlineTestSuite for Junior Code Cracker 
 
 <p align="center">
   <a href="#">
@@ -6,8 +6,11 @@
   </a>
 </p>
 
-Use a virtual envionment for installing this, 
-i.e `venv` or `pipenv`.
+Activate a virtual environment in python using:
+```shell
+python3 -m venv venv
+source venv/bin/activate
+```
 
 
 For debian based distro, in virtual evironment terminal type
@@ -20,7 +23,7 @@ Then `cp .env.example .env` and change `.env` file according to your need.
 
 Inside project directory type
 ```shell
-python3 manage.py migrate
-python3 manage.py collectstatic
-python3 manage.py runserver
+python manage.py migrate
+python manage.py collectstatic
+python manage.py runserver
 ```

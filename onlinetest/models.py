@@ -6,12 +6,15 @@ from datetime import datetime
 from django.core.validators import MaxValueValidator, MinValueValidator
 from tinymce.models import HTMLField
 from bs4 import BeautifulSoup
+
+
 class Question(models.Model):
     title = HTMLField()
     image = models.ImageField(upload_to="question_images/", null=True, blank=True)
 
     def __str__(self):
         return BeautifulSoup(self.title).get_text()
+
 
 class Answer(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
@@ -26,11 +29,11 @@ class Answer(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    time_left = models.IntegerField(default=4500) #time in seconds, default 1hour
+    time_left = models.IntegerField(default=4500)  #time in seconds, default 1hour
     full_name = models.CharField(max_length=255)
     phone = models.CharField(max_length=14)
     rollno = models.CharField(max_length=10)
-    image = models.CharField(max_length=200,blank=True)
+    image = models.CharField(max_length=200, blank=True)
 
     # for admin uses
     remarks = models.TextField(help_text="Write remarks after reviewing", blank=True, null=True)
@@ -48,7 +51,7 @@ class Profile(models.Model):
 class Config(models.Model):
     start_time = models.DateTimeField(default=datetime.now)
     end_time = models.DateTimeField(default=datetime.now)
-    result_release_time = models.DateTimeField(default=datetime.now)
+    result_release_time = models.BooleanField(default=False, help_text="To make results visible or not")
 
     def __str__(self):
         return "Project Wide Settings"

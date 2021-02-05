@@ -93,7 +93,7 @@ textarea {
   font-family: "Slackey", "cursive";
 }
 
-@media (max-width:500px) {
+@media (max-width:600px) {
   #countdown .canvas-container {
     max-width: 220px;
   }
@@ -108,8 +108,8 @@ textarea {
   }
 
   .container {
-    padding-top: 40%;
-    position: relative;
+    padding-top: 70% !important;
+    position: fixed;
   }
 }
 

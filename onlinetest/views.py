@@ -12,6 +12,7 @@ from django.utils import timezone
 import os
 import csv
 
+
 def save_profile(backend, user, response, *args, **kwargs):
     if backend.name == 'google-oauth2':
         profile = user
@@ -23,6 +24,7 @@ def save_profile(backend, user, response, *args, **kwargs):
             player.image = response.get('picture')
             player.save()
 
+
 def index(req):
     config = Config.objects.all().first()
     time_left = int(config.start_time.timestamp())
@@ -30,12 +32,14 @@ def index(req):
     if req.user.is_authenticated:
         image = Profile.objects.get(user=req.user).image
         curr_time = timezone.now()
-        print(curr_time, config.end_time, req.user.is_staff)
         if curr_time > config.end_time and not req.user.is_staff:
             return redirect('/finish/')
-        return redirect('/rules/')
+        elif curr_time < config.end_time:
+            return redirect('/rules/')
 
     ctx = {}
+    if config.result_release_time:
+        ctx['release_result'] = True
     if image:
         ctx['image'] = image
     if config.start_time > timezone.now():
@@ -59,7 +63,9 @@ def logout_user(req):
 def questions(req):
     profile = Profile.objects.get(user=req.user)
     time_left = (Config.objects.all().first().end_time - timezone.now()).total_seconds()
-    
+
+    if timezone.now() < Config.objects.all().first().start_time:
+        return redirect('/')
     if time_left <= 0:
         return HttpResponseRedirect('/finish/', {'image': profile.image})
     questions = Question.objects.all()
@@ -113,13 +119,16 @@ def rules(req):
             phone = req.POST['phone']
             rollno = req.POST['rollno']
             user = User.objects.get(id=req.user.id)
-            profile = Profile(user=user, full_name=full_name, phone=phone, rollno=rollno)
+            profile = Profile.objects.get(user=user)
+            profile.full_name = full_name
+            profile.phone = phone
+            profile.rollno = rollno
             profile.save()
             return redirect('/questions/')
     else:
-        if Profile.objects.filter(user=req.user).exists():
+        if Profile.objects.filter(user=req.user).exists() and Profile.objects.get(user=req.user).phone:
             return HttpResponseRedirect('/questions/', {})
-        ctx = {'user': req.user, 'noprofile': True, 'image': Profile.image}
+        ctx = {'user': req.user, 'noprofile': True, 'image': Profile.objects.get(user=req.user).image}
         return render(req, 'onlinetest/rules.html', ctx)
 
 
@@ -135,14 +144,14 @@ def results(req):
     image = None
     if req.user.is_authenticated:
         image = Profile.objects.get(user=req.user).image
-    
+
     ctx = {}
     if image:
         ctx['image'] = image
 
     config = Config.objects.all().first()
     curr_time = timezone.now()
-    if curr_time < config.result_release_time and (not req.user.is_staff):
+    if not config.result_release_time:
         ctx['not_declared'] = True
     else:
         profiles = Profile.objects.filter(selected=True)
@@ -150,7 +159,7 @@ def results(req):
 
         ctx['profiles'] = profiles
         ctx['count'] = len(profiles)
-        
+
     return render(req, 'onlinetest/results.html', ctx)
 
 

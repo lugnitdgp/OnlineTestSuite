@@ -11,9 +11,9 @@ body {
   overflow: hidden !important;
 }
 
-.navbar {
+/* .navbar {
   visibility: hidden;
-}
+} */
 
 .container-fluid {
   padding: 5%;
@@ -26,8 +26,8 @@ body {
   font-family: "Slackey", "cursive";
   justify-content: center;
   margin: 0 auto;
-  padding-top: 2em;
-  padding-bottom: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 .type h1 {
@@ -162,6 +162,13 @@ body {
   }
 }
 
+@media (max-width: 600px)
+{
+  body {
+    overflow-y: scroll !important;
+  }
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Slackey&display=swap");
 html {
   box-sizing: border-box;
@@ -193,7 +200,7 @@ html .main, body .main {
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 20%;
+  top: 30%;
   left: 50%;
   margin: 0 auto;
   transform: translate(-50%, -50%);
@@ -365,4 +372,36 @@ html .main #content section p.timedescription, body .main #content section p.tim
   font-family: "Slackey", "cursive";
   font-weight: 700;
   font-style: italic;
+}
+
+.offset {
+  box-shadow: 0.3em 0.3em 0 0 var(--color), inset 0.3em 0.3em 0 0 var(--color);
+  font-family: Slackey;
+  font-size: 1rem;
+}
+.offset:hover, .offset:focus {
+  box-shadow: 0 0 0 0 var(--hover), inset 6em 3.5em 0 0 var(--hover);
+}
+
+.offset {
+  --color: silver;
+  --hover: lightblue;
+}
+
+button {
+  color: var(--color);
+  transition: 0.25s;
+}
+button:hover, button:focus {
+  border-color: var(--hover);
+  color: #fff;
+}
+
+button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
 }
