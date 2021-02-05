@@ -70,6 +70,7 @@ textarea {
 }
 
 #countdown {
+  position: absolute;
   background: rgba(0, 0, 0, 0.5);
   float: right;
   /* top: 30px; */
@@ -79,6 +80,9 @@ textarea {
   margin-right: 10px;
   border-radius: 10%;
   font-family: "Slackey", "cursive";
+  position: sticky !important;
+  top:10% !important;
+  z-index: 950 !important;
 }
 
 #countdown p {
@@ -95,7 +99,7 @@ textarea {
 
 @media (max-width:600px) {
   #countdown .canvas-container {
-    max-width: 220px;
+    max-width: 420px;
   }
   #countdown canvas:nth-child(-n+2) {
     margin-bottom: 10px;

@@ -97,7 +97,7 @@
                 <hr>
                 <ul>
                     {% for response in responses %}
-                    <h3>{{ forloop.counter }}. {{ response.0 }}</h3>
+                    <h3>{{ forloop.counter }}. {{ response.0 | safe }}</h3>
                     <br />
                     {% ifnotequal response.2 None %}
                     <div style="display: flex; justify-content: center;">

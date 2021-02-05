@@ -34,7 +34,7 @@ def index(req):
         curr_time = timezone.now()
         if curr_time > config.end_time and not req.user.is_staff:
             return redirect('/finish/')
-        elif curr_time < config.end_time:
+        elif curr_time > config.start_time and curr_time < config.end_time:
             return redirect('/rules/')
 
     ctx = {}

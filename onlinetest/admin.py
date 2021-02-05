@@ -58,7 +58,7 @@ class ProfileAdmin(admin.ModelAdmin):
 
         respon = []
         for i in range(max(len(questions), len(already_submitted), len(ques_links))):
-            respon.append([questions[i], already_submitted[i], ques_links[i]])
+            respon.append([questions[i].title, already_submitted[i], ques_links[i]])
 
         return respon
 
