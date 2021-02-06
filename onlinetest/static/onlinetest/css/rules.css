@@ -1,8 +1,8 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Share:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap'); */
-@import url("https://fonts.googleapis.com/css2?family=Slackey&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Slackey&display=swap");
 body {
     background-position: center;
     background-attachment: fixed;
@@ -10,6 +10,13 @@ body {
     width: 100%;
     height: 100%;
     font-family: Slackey !important;
+    grid-template-rows: 1fr auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    flex: 1 0 auto;
 }
 
 .container {
@@ -148,4 +155,9 @@ body {
 
 .butt_out:focus {
     outline: none;
+}
+
+.footer {
+    flex-shrink: 0;
+    bottom: 0 !important;
 }

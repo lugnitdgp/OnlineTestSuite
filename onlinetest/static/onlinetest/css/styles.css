@@ -162,14 +162,12 @@ body {
   }
 }
 
-@media (max-width: 600px)
-{
+@media (max-width: 600px) {
   body {
     overflow-y: scroll !important;
   }
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Slackey&display=swap");
 html {
   box-sizing: border-box;
 }
@@ -379,6 +377,7 @@ html .main #content section p.timedescription, body .main #content section p.tim
   font-family: Slackey;
   font-size: 1rem;
 }
+
 .offset:hover, .offset:focus {
   box-shadow: 0 0 0 0 var(--hover), inset 6em 3.5em 0 0 var(--hover);
 }
@@ -392,6 +391,7 @@ button {
   color: var(--color);
   transition: 0.25s;
 }
+
 button:hover, button:focus {
   border-color: var(--hover);
   color: #fff;
@@ -404,4 +404,26 @@ button {
   line-height: 1;
   margin: 0.5em;
   padding: 1em 2em;
+}
+
+@media screen and (max-width: 500px) {
+  .txt-type {
+    font-size: 0.9em !important;
+  }
+  .login-container {
+    align-items: center !important;
+  }
+}
+
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  border-radius: 35px;
+  font-size: 12px;
+  text-align: center;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: none !important;
+  background-size: contain;
 }

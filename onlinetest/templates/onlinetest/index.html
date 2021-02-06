@@ -4,7 +4,6 @@
 
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'onlinetest/css/styles.css' %}">
-<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
 <div class="main">
   <div id='content'>
     <div class='title'>
@@ -12,9 +11,7 @@
     </div>
 
     <div class="type">
-      <h4>
-        <span class="txt-type" data-wait="3000"></span>
-      </h4>
+      <span class="txt-type" data-wait="3000"></span>
     </div>
 
     <div class="type">
@@ -49,16 +46,10 @@
 
     {% if not ended and user.is_anonymous %}
     <div class="button login-container">
-      <a href='{% url "social:begin" "google-oauth2" %}' class="gplogin">
-        <!-- <div class="google-btn">
-          <div class="google-icon-wrapper">
-            <img class="google-icon"
-              src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
-            <p class="btn-text"><b>Login with google</b></p>
-          </div>
-        </div> -->
+      <!-- <a href='{% url "social:begin" "google-oauth2" %}' class="gplogin">
         <i class="fa fa-google-plus"></i><span>Sign in with Google</span>
-      </a>
+      </a> -->
+      <button type="button" class="btn btn-circle btn-xl" style="background-image: url('{% static 'onlinetest/google.png' %}');" onclick="window.location.href='{% url "social:begin" "google-oauth2" %}'"></button>
     </div>
     {% endif %}
 
@@ -72,6 +63,7 @@
   </div>
 </div>
 {% include 'components/footer.html' %}
+
 <!-- <div class="container-fluid">
   <div class="card col-lg-5">
     
