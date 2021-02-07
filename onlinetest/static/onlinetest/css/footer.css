@@ -30,9 +30,8 @@ div.footer {
     .footer .row h1 {
         font-size: 0.9rem;
     }
-
     .footer {
+        flex-direction: column;
         position: absolute !important;
-        bottom: 0;
     }
 }

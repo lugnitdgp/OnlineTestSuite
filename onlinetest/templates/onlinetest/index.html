@@ -4,6 +4,17 @@
 
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'onlinetest/css/styles.css' %}">
+
+<style>
+  @media screen and (max-width: 500px) {
+    .footer {
+      flex-direction: column;
+      position: absolute !important;
+      bottom: -60px !important;
+    }
+  }
+</style>
+
 <div class="main">
   <div id='content'>
     <div class='title'>
@@ -49,7 +60,9 @@
       <!-- <a href='{% url "social:begin" "google-oauth2" %}' class="gplogin">
         <i class="fa fa-google-plus"></i><span>Sign in with Google</span>
       </a> -->
-      <button type="button" class="btn btn-circle btn-xl" style="background-image: url('{% static 'onlinetest/google.png' %}');" onclick="window.location.href='{% url "social:begin" "google-oauth2" %}'"></button>
+      <button type="button" class="btn btn-circle btn-xl"
+        style="background-image: url('{% static 'onlinetest/google.png' %}');" onclick="window.location.href='{% url "
+        social:begin" "google-oauth2" %}'"></button>
     </div>
     {% endif %}
 
@@ -196,11 +209,3 @@
   });
 </script>
 {% endblock %}
-
-<style>
-  body {
-    background-image: "{% static 'onlinetest/bg2.jpg' %}" !important;
-  }
-
-  ;
-</style>
