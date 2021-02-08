@@ -60,9 +60,8 @@
       <!-- <a href='{% url "social:begin" "google-oauth2" %}' class="gplogin">
         <i class="fa fa-google-plus"></i><span>Sign in with Google</span>
       </a> -->
-      <button type="button" class="btn btn-circle btn-xl"
-        style="background-image: url('{% static 'onlinetest/google.png' %}');" onclick="window.location.href='{% url "
-        social:begin" "google-oauth2" %}'"></button>
+      <button type="button" id="sign-in" class="btn btn-circle btn-xl"
+        style="background-image: url('{% static 'onlinetest/google.png' %}');"></button>
     </div>
     {% endif %}
 
@@ -89,6 +88,11 @@
 
 {% block js %}
 <script>
+
+  $("#sign-in").on('click', () => {
+    window.location.href = '{% url "social:begin" "google-oauth2" %}';
+  });
+
   var left_time = '{{ time_left }}';
 
   (function ($) {
