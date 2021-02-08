@@ -132,3 +132,7 @@ textarea {
   width: 100%;
   position: relative;
 }
+
+body {
+  overflow-x: hidden;
+}

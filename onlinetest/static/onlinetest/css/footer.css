@@ -33,5 +33,6 @@ div.footer {
     .footer {
         flex-direction: column;
         position: absolute !important;
+        width: 95% !important;
     }
 }
