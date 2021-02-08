@@ -30,7 +30,10 @@ def index(req):
     time_left = int(config.start_time.timestamp())
     image = None
     if req.user.is_authenticated:
+        if req.user.is_superuser and not Profile.objects.filter(user = req.user).exists():
+            Profile(user=req.user, image=req.build_absolute_uri("/static/onlinetest/defavatar.jpeg")).save()
         image = Profile.objects.get(user=req.user).image
+        print(image)
         curr_time = timezone.now()
         if curr_time > config.end_time and not req.user.is_staff:
             return redirect('/finish/')
