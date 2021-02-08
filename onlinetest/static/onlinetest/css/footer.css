@@ -10,9 +10,9 @@ div.footer {
     bottom: 0;
 }
 
-.footer h1 {
-    margin-left: 15px;
-    margin-top: 10px;
+.footer h3 {
+    /* margin-left: 15px;
+    margin-top: 10px; */
     font-size: 1rem;
     color: white;
     text-align: center;
@@ -27,12 +27,15 @@ div.footer {
 }
 
 @media screen and (max-width: 500px) {
-    .footer .row h1 {
+    .footer h3{
         font-size: 0.9rem;
+        text-align: center;
+    }
+    .footer a {
+        align-items: center;
     }
     .footer {
         flex-direction: column;
         position: absolute !important;
-        width: 95% !important;
     }
 }

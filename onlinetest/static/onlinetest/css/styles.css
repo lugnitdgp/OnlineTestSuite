@@ -413,6 +413,10 @@ button {
   .login-container {
     align-items: center !important;
   }
+
+  /* .footer {
+    margin-bottom: ;
+  } */
 }
 
 .btn-circle.btn-xl {
