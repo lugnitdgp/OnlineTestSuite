@@ -80,7 +80,6 @@
 <!-- <div class="container-fluid">
   <div class="card col-lg-5">
     
-
   </div>
 </div> -->
 
@@ -115,7 +114,7 @@
       //create the countdown processing function
       function countdown_proc() {
         var eventDate = '{{ time_left }}';
-        var currentDate = Math.floor($.now() / 10https://discord.gg/4D5jXgt900);
+        var currentDate = Math.floor($.now() / 1000);
 
         if (eventDate <= currentDate) {
           callback.call(this);
