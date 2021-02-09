@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Share:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap');
 
 body {
   background-position: center;
@@ -15,7 +16,7 @@ body {
 }
 
 .card-heading {
-  font-family: "Slackey", "cursive";
+  font-family: 'Raleway', sans-serif;
   text-align: left;
   color: white;
   margin: 7px;
@@ -24,6 +25,7 @@ body {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-right: 3px;
+  word-spacing: 0.30em;
 }
 
 .card {
@@ -37,7 +39,7 @@ body {
 
 .card-body {
   padding: 10px;
-  font-family: "Slackey", "cursive";
+  font-family: 'Slackey';
 }
 
 /* Set the font size for the textarea */
@@ -47,9 +49,10 @@ body {
 }
 
 textarea {
-  font-family: "Slackey", "cursive";
+  font-family: 'Raleway', sans-serif;
   /*   resize: none; */
   opacity: 0.7;
+  font-size: 1.5em;
 }
 
 .submit-btn {

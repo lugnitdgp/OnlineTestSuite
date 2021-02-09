@@ -414,9 +414,9 @@ button {
     align-items: center !important;
   }
 
-  /* .footer {
-    margin-bottom: ;
-  } */
+  .footer {
+    margin-bottom: -10vh !important;
+  }
 }
 
 .btn-circle.btn-xl {

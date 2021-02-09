@@ -138,8 +138,9 @@ def rules(req):
 @login_required
 def finish(req):
     profile = Profile.objects.get(user=req.user)
+    discord_link = Config.objects.all().first().discord_link
     name = profile.full_name
-    ctx = {'user': name, 'image': profile.image}
+    ctx = {'user': name, 'image': profile.image, 'discord': discord_link}
     return render(req, 'onlinetest/finish.html', ctx)
 
 

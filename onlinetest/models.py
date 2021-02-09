@@ -51,6 +51,7 @@ class Config(models.Model):
     start_time = models.DateTimeField(default=datetime.now)
     end_time = models.DateTimeField(default=datetime.now)
     result_release_time = models.BooleanField(default=False, help_text="To make results visible or not")
+    discord_link = models.CharField(max_length=100, default="#")
 
     def __str__(self):
         return "Project Wide Settings"
