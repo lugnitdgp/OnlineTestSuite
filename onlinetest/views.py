@@ -131,6 +131,8 @@ def rules(req):
         if Profile.objects.filter(user=req.user).exists() and Profile.objects.get(user=req.user).phone:
             return HttpResponseRedirect('/questions/', {})
         ctx = {'user': req.user, 'noprofile': True, 'image': Profile.objects.get(user=req.user).image}
+        if timezone.now() > Config.objects.all().first().start_time:
+            ctx['started'] = True
         return render(req, 'onlinetest/rules.html', ctx)
 
 

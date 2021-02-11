@@ -16,7 +16,11 @@
             <ul>
               <li>You will have fixed time to complete the test. Test will automatically terminate after that. </li>
               <br>
+              {% if started %}
               <li>The timer will start on clicking the Submit and Start Test button.</li>
+              {% else %}
+              <li>The test will start at the stipulated time.</li>
+              {% endif %}
               <br>
               <li>Please submit the answer for each question individually before moving on to the next question.</li>
               <br>
@@ -49,8 +53,12 @@
               <div class="invalid-feedback" style='font-family: "Slackey","cursive";'>Please fill out this field.</div>
             </div>
             <br><br>
+            {% if started %}
             <input type="submit" class="butt" style="font-family: 'Slackey'; font-size: small;"
               value="Submit & Start Test">
+            {% else %}
+            <input type="submit" class="butt" style="font-family: 'Slackey'; font-size: small;" value="Register">
+            {% endif %}
           </form>
         </div>
       </div>
