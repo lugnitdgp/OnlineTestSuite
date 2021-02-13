@@ -37,22 +37,23 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky py-0">
         <a class="navbar-brand" href="/"><img src="{% static 'onlinetest/jcclogo.png' %}" alt="logo" width="45"
                 class="d-inline-block align-top"></a>
+        {% if not user.is_anonymous %}
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-                {% if not user.is_anonymous %}
                 <li class="nav-item">
                     <a class="nav-link"><img src="{{ image }}" alt=""> &nbsp;{{user}}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ '/logout/' }}"><span class="fas fa-sign-out-alt pr-2"></span>Logout</a>
                 </li>
-                {% endif %}
             </ul>
         </div>
+        {% endif %}
     </nav>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
         integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
