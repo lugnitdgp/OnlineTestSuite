@@ -6,7 +6,7 @@
     <div class="sticky" id="countdown">
         <p>Time Left</p>
         <div class="canvas-container" style="display: flex; align-items: center;">
-            <canvas id="hours" style="padding: 0.25em;"></canvas> 
+            <canvas id="hours" style="padding: 0.25em;"></canvas>
             <canvas id="minutes" style="padding: 0.25em;"></canvas>
             <canvas id="seconds" style="padding: 0.25em;"></canvas>
         </div>
@@ -65,11 +65,31 @@
 
 <script>
     var t_left = {{ time_left }};
-    //console.log(t_left);
+    console.log(t_left);
     var init_time = parseInt(t_left); // for timer element
     var tleft = parseInt(t_left); // for updating timer
     startTimer();
     start_timer_updater(init_time);
+
+    if (!sessionStorage.getItem('show_instruction')) {
+        $.toast({
+            text: '<span style="font-family:Slackey; font-size: 1em;">Please submit every question individually before moving onto the next!</span>',
+            heading: '<span style="font-family:Slackey; font-size: 1em;">Instruction</span><br/>',
+
+            showHideTransition: 'fade',
+            allowToastClose: true,
+            hideAfter: 7500,
+            stack: 5,
+
+            bgColor: '#e4e4e4',
+            textColor: '#322b2b',
+            textAlign: 'left',
+            loader: true,
+            loaderBg: '#5265F5',
+        });
+
+        sessionStorage.setItem('show_instruction',true);
+    }
 
     checkForToast = () => {
         if (Math.floor(t_left) == 600) {
