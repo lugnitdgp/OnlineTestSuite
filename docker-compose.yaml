@@ -1,0 +1,19 @@
+version: "3.8"
+
+services: 
+  server:
+    build: 
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/ots
+    command: >
+      bash -c "python manage.py makemigrations --settings=OnlineTestSuite.settings-dev &&
+      python manage.py migrate --settings=OnlineTestSuite.settings-dev &&
+      python manage.py runserver --settings=OnlineTestSuite.settings-dev 0.0.0.0:8000"
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+    ports: 
+      - "8000:8000"
