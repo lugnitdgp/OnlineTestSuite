@@ -2,7 +2,7 @@ beautifulsoup4==4.9.3
 certifi==2019.9.11
 chardet==3.0.4
 defusedxml==0.6.0
-Django==2.2.10
+Django==2.2.22
 django-heroku==0.3.1
 django-tinymce==3.2.0
 gunicorn==20.0.4
